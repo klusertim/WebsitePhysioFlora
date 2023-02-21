@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/index.js", "src/components/Post.js", "src/pages/posts/[slug].js", "src/utils/wordpress.js"],
   "exclude": ["node_modules"]
 }

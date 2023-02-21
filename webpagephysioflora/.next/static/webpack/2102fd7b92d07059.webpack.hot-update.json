@@ -1,0 +1,1 @@
+{"c":["pages/index","webpack"],"r":["pages/posts/[slug]"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2FUsers%2Fklusertim%2FProjects%2FJS%2FPhysioFlora%2FWebsitePhysioFlora%2Fwebpagephysioflora%2Fsrc%2Fpages%2Fposts%2F%5Bslug%5D.js&page=%2Fposts%2F%5Bslug%5D!","./src/pages/posts/[slug].js"]}
