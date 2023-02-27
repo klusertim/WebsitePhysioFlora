@@ -5,13 +5,16 @@ import physio from "public/PHYSIOTHERAPIE.svg"
 import logoSrc from 'public/logoMiddle.svg'
 
 
+interface Props{
+    className: string
+}
 
-
-export default function Logo() {
+export default function Logo({className}:Props) {
     return(
         <Group
             spacing= "xs"
             noWrap
+            className={className}
         >
             <Stack
             spacing="xs"
