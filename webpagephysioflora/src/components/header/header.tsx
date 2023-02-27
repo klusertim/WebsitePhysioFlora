@@ -1,7 +1,10 @@
-import { Container, createStyles, Flex, MediaQuery, Text } from "@mantine/core";
+import { Container, createStyles, Drawer, Flex, MediaQuery, Text } from "@mantine/core";
 import Link from "next/link";
 import menuItems from './header.data'
 import Logo from "../logo";
+import LayeredWaves from "../layeredWaves";
+import DrawerMenu from "../drawer";
+import DrawerProvider from "@/contexts/drawer.provider";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
     container: {
@@ -29,12 +32,17 @@ const useStyles = createStyles((theme, _params, getRef) => ({
         flexGrow: 1,
         justifyContent: 'center',
         alignItems: 'center',
-
+        marginLeft: theme.spacing.xs,
+        marginRight: theme.spacing.xs,
     },
     links: {
+        fontFamily: theme.headings.fontFamily,
         '&:hover': {
             color: theme.colors.pink,
         }
+    },
+    logo:{
+
     },
   
     child: {
@@ -53,24 +61,36 @@ export default function Header(){
     console.log(menuItems)
     const {classes} = useStyles();
     return(
-        <Container className={classes.container} >
-            <Logo/>
-            <MediaQuery
-                smallerThan={300}
-                styles={{gap: 10, display: 'none'}}
-            >
-                <Flex 
-                gap={40}
-                
-                className= {classes.items}
-                >
-                    {menuItems.map(({path, label}, i) => (
-                        <Text className={classes.links}>
-                            {label}
-                        </Text>
-                    ))}
-                </Flex>
-            </MediaQuery>
-        </Container>
+        <DrawerProvider>
+            <>
+                <MediaQuery largerThan={800} styles={{display: "none"}}>
+                    <DrawerMenu/>
+                </MediaQuery>
+                <MediaQuery
+                        smallerThan={800}
+                        styles={{display: 'none'}}
+                    >
+                    <Flex className={classes.container} >
+                        <Logo className={classes.logo}/>
+                            <Flex 
+                            gap={40}
+                            className= {classes.items}
+                            >
+                                {menuItems.map(({path, label}, i) => (
+                                    <Text className={classes.links} key={i}>
+                                        {label}
+                                    </Text>
+                                ))}
+                            </Flex>
+                    </Flex>
+                </MediaQuery>
+
+                <LayeredWaves offsetY={0}/>
+            </>
+        </DrawerProvider>
+
+       
+
+        
     );
 }

@@ -26,3 +26,6 @@ Always build page new
 
 ## Mantine
 Installed: npm install @mantine/core @mantine/hooks @mantine/next @emotion/server @emotion/react
+
+## Google maps
+npm i -D @types/google.maps
