@@ -7,11 +7,12 @@ import layeredWavesSrc from "public/layered-waves.svg"
 
 interface OffsetProps {
     offsetY: number
+    rotation: number
     // children: JSX.Element
 }
 
 
-const useStyles = createStyles((theme, offsetY:number) => ({
+const useStyles = createStyles((theme, {offsetY, rotation} : OffsetProps) => ({
     wrapper:{
         justifyContent: "center",
         marginTop: offsetY,
@@ -26,12 +27,12 @@ const useStyles = createStyles((theme, offsetY:number) => ({
         maxHeight: 400
     },
     img:{
-        position: "absolute",
-        bottom: 0,
-        borderStyle: "solid",
+        margin: 0,
         padding: 0,
-        borderColor: theme.colors.red,
-
+        // border: "solid",
+        // borderColor: theme.colors.red,
+        zIndex: -1,
+        transform: `rotate(${rotation}deg)`,
     },
     container: {
         borderStyle: "solid",
@@ -46,9 +47,9 @@ const useStyles = createStyles((theme, offsetY:number) => ({
     }
 }));
 
-export default function LayeredWaves({offsetY}:OffsetProps){
+export default function LayeredWaves({offsetY, rotation}:OffsetProps){
 
-    const {classes} = useStyles(offsetY);
+    const {classes} = useStyles({offsetY, rotation});
 
     return (
         
@@ -59,7 +60,7 @@ export default function LayeredWaves({offsetY}:OffsetProps){
             //     {/* </Flex> */}
             //     </Overlay>
             // </Flex>
-            <Image src="layered-waves.svg" alt="waves" />
+            <Image src="layered-waves.svg" alt="waves" pos="relative" className={classes.img} opacity={0.7}/>
         
     )
 }

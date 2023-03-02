@@ -1,4 +1,4 @@
-import { Container, createStyles, Drawer, Flex, MediaQuery, Text } from "@mantine/core";
+import { Container, createStyles, Drawer, Flex, MediaQuery, Text, Affix, Group, Button, Box } from "@mantine/core";
 import Link from "next/link";
 import menuItems from './header.data'
 import Logo from "../logo";
@@ -12,8 +12,8 @@ const useStyles = createStyles((theme, _params, getRef) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      borderStyle: "solid",
-      borderColor: theme.primaryColor,
+    //   borderStyle: "solid",
+    //   borderColor: theme.primaryColor,
       paddingTop: theme.spacing.sm,
       margin: 10,
   
@@ -41,6 +41,11 @@ const useStyles = createStyles((theme, _params, getRef) => ({
             color: theme.colors.pink,
         }
     },
+    blur:{
+        backdropFilter: "blur(5px)",
+        // filter: "blur(5px)",
+        // backgroundColor: "white"
+    },
     logo:{
 
     },
@@ -57,35 +62,49 @@ const useStyles = createStyles((theme, _params, getRef) => ({
   }));
 
 
-export default function Header(){
+export default function Header({...props}){
     console.log(menuItems)
     const {classes} = useStyles();
+    const mobileBound:number = 820;
     return(
         <DrawerProvider>
             <>
-                <MediaQuery largerThan={800} styles={{display: "none"}}>
+                <MediaQuery largerThan={mobileBound} styles={{display: "none"}}>
                     <DrawerMenu/>
                 </MediaQuery>
                 <MediaQuery
-                        smallerThan={800}
+                        smallerThan={mobileBound}
                         styles={{display: 'none'}}
                     >
-                    <Flex className={classes.container} >
-                        <Logo className={classes.logo}/>
-                            <Flex 
-                            gap={40}
-                            className= {classes.items}
+                    <Affix position={{top: 0, left:0}} zIndex={3} /* for the blur */>
+                        <Box className={classes.blur} h={120} w="100vw" /> 
+                    </Affix>
+                </MediaQuery>
+                <MediaQuery
+                        smallerThan={mobileBound}
+                        styles={{display: 'none'}}
+                    >
+                    <Affix position={{top: 0, left:0}} zIndex={4}>
+                        <Group pl="5%" position="apart" w="100vw" pt={20} pb={10} noWrap grow bg="white" opacity={0.8} h={120}>
+                            <Logo className={classes.logo}/>
+                            <Group 
+                            noWrap
+                            // gap={40}
+                            // className= {classes.items}
+                            position="center"
+                            mr="15vw"
+                            ml={50}
+                            spacing={50}
                             >
                                 {menuItems.map(({path, label}, i) => (
-                                    <Text className={classes.links} key={i}>
-                                        {label}
+                                    <Text className={classes.links} key={i} weight="bold">
+                                        {label.toUpperCase()}
                                     </Text>
                                 ))}
-                            </Flex>
-                    </Flex>
+                            </Group>
+                        </Group>
+                    </Affix>
                 </MediaQuery>
-
-                <LayeredWaves offsetY={0}/>
             </>
         </DrawerProvider>
 
