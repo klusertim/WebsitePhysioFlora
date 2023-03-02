@@ -23,9 +23,9 @@ export default function App(props: AppProps) {
             pink: ["#D70063"],
             blue: ["#83CDF3"]
           },
-          fontFamily: "Comfortaa",
+          fontFamily: "Montserrat",
           headings:{
-            fontFamily: "Comfortaa"
+            fontFamily: "Montserrat"
           },
           
         }}
