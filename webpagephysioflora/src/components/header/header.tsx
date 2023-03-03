@@ -1,10 +1,10 @@
 import { Container, createStyles, Drawer, Flex, MediaQuery, Text, Affix, Group, Button, Box } from "@mantine/core";
-import Link from "next/link";
 import menuItems from './header.data'
 import Logo from "../logo";
 import LayeredWaves from "../layeredWaves";
 import DrawerMenu from "../drawer";
 import DrawerProvider from "@/contexts/drawer.provider";
+import {Link} from 'react-scroll';
 
 const useStyles = createStyles((theme, _params, getRef) => ({
     container: {
@@ -97,9 +97,11 @@ export default function Header({...props}){
                             spacing={50}
                             >
                                 {menuItems.map(({path, label}, i) => (
-                                    <Text className={classes.links} key={i} weight="bold">
-                                        {label.toUpperCase()}
-                                    </Text>
+                                    <Link to={path!} spy={true} smooth={true} duration={500}>
+                                        <Text className={classes.links} key={i} weight="bold">
+                                            {label.toUpperCase()}
+                                        </Text>
+                                    </Link>
                                 ))}
                             </Group>
                         </Group>

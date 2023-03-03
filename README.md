@@ -29,3 +29,7 @@ Installed: npm install @mantine/core @mantine/hooks @mantine/next @emotion/serve
 
 ## Google maps
 npm i -D @types/google.maps
+
+## React Scroll
+```npm install react-scroll```
+And then install the types to get rid of the errors: ```npm install --save @types/react-scroll``
