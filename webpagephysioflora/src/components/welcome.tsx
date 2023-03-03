@@ -1,5 +1,6 @@
 import { Stack, Title, Group, Text, Image, Container, createStyles, Space, Flex, Button, Transition, Box } from "@mantine/core"
 import { useEffect, useRef, useState } from "react";
+import { Link, animateScroll as scroll } from "react-scroll";
 import LayeredWaves from "./layeredWaves"
 
 
@@ -61,7 +62,9 @@ export default function WelcomePage(){
                         <Text align="left" size="lg" maw="500px">Unser Team hilft Ihnen gerne, wieder topfit zu werden.</Text>
                         <Space h="3vh"/>
                         <Flex w="100%" justify="center"  >
+                          <Link to="kontakt" spy={true} smooth={true} duration={500}>
                             <Button className={classes.button} variant="filled"  opacity={0.9} >Kontaktieren Sie uns jetzt</Button>
+                          </Link>
                         </Flex>
                         </Stack>
                         }

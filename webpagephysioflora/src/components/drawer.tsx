@@ -1,7 +1,8 @@
 import { DrawerContext } from "@/contexts/drawer.context";
 import { Burger, Drawer, Group, Stack, Text, Title, Overlay, createStyles, Affix } from "@mantine/core";
 import { useContext, useState } from "react";
-import menuItems from './header/header.data'
+import menuItems from './header/header.data';
+import {Link} from "react-scroll";
 
 
 const useStyles = createStyles((theme, _params, getRef) => ({
@@ -38,7 +39,9 @@ export default function DrawerMenu({...others}){
                 <Stack justify="center" align="center">
                     <Title>Menu</Title>
                     {menuItems.map(({path, label}, i) => (
-                        <Text weight="bolder" key={i}>{label}</Text>
+                        <Link to={path!} spy={true} smooth={true} duration={500} key={i} onClick={() => setDrawerOpen(false)} >
+                            <Text weight="bolder" >{label}</Text>
+                        </Link>
                     )
                     )}
                 </Stack>
