@@ -1,10 +1,12 @@
 import { Container, createStyles, Drawer, Flex, MediaQuery, Text, Affix, Group, Button, Box } from "@mantine/core";
-import menuItems from './header.data'
+import {menuItems, PathsType} from './header.data'
 import Logo from "../logo";
 import LayeredWaves from "../layeredWaves";
 import DrawerMenu from "../drawer";
 import DrawerProvider from "@/contexts/drawer.provider";
 import {Link} from 'react-scroll';
+import {useRouter} from 'next/router';
+import NextLink from 'next/link'; // because of default export we can import with different name
 
 const useStyles = createStyles((theme, _params, getRef) => ({
     container: {
@@ -39,7 +41,8 @@ const useStyles = createStyles((theme, _params, getRef) => ({
         fontFamily: theme.headings.fontFamily,
         '&:hover': {
             color: theme.colors.pink,
-        }
+        },
+        
     },
     blur:{
         backdropFilter: "blur(5px)",
@@ -66,6 +69,8 @@ export default function Header({...props}){
     console.log(menuItems)
     const {classes} = useStyles();
     const mobileBound:number = 820;
+    const {locale}:{locale?:string} = useRouter();
+    console.log(locale)
     return(
         <DrawerProvider>
             <>
@@ -99,10 +104,16 @@ export default function Header({...props}){
                                 {menuItems.map(({path, label}, i) => (
                                     <Link to={path!} spy={true} smooth={true} duration={500}>
                                         <Text className={classes.links} key={i} weight="bold">
-                                            {label.toUpperCase()}
+                                            {label[locale! as keyof PathsType["label"]].toUpperCase()}
                                         </Text>
                                     </Link>
                                 ))}
+                                
+                                <Text component={NextLink} href="" locale= {locale=="de"? "fr": "de"} className={classes.links} weight="bold" /* NextLink as component to not inherit style */>
+                                    {locale == "de" ? "Francais" : "Deutsch"}
+                                </Text>
+
+                                
                             </Group>
                         </Group>
                     </Affix>
