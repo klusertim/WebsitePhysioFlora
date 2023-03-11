@@ -24,7 +24,8 @@ export default function WelcomePage(){
     const [opened, setOpened] = useState(false);
     const ref = useRef(null);
 
-  useEffect(() => {
+
+  useEffect(() => { // observe when the elemt is shown on the dom to ease in the font
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

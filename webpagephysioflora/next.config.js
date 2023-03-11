@@ -4,7 +4,14 @@ const nextConfig = {
   images:{
     unoptimized: true,
   },
+  
+  i18n: {
+    locales: ['de', 'fr'],
+    defaultLocale: 'de',
+  },
+  
 }
+
 
 module.exports = nextConfig
 
