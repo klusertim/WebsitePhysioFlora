@@ -91,7 +91,9 @@ export default function Header({...props}){
                     >
                     <Affix position={{top: 0, left:0}} zIndex={4}>
                         <Group pl="5%" position="apart" w="100vw" pt={20} pb={10} noWrap grow bg="white" opacity={0.8} h={120}>
-                            <Logo className={classes.logo}/>
+                            <Link to={"home"} spy={true} smooth={true} duration={500}>
+                                <Logo className={classes.logo}/>
+                            </Link>
                             <Group 
                             noWrap
                             // gap={40}
@@ -101,7 +103,7 @@ export default function Header({...props}){
                             ml={50}
                             spacing={50}
                             >
-                                {menuItems.map(({path, label}, i) => (
+                                {menuItems?.map(({path, label}, i) => (
                                     <Link to={path!} spy={true} smooth={true} duration={500}>
                                         <Text className={classes.links} key={i} weight="bold">
                                             {label[locale! as keyof PathsType["label"]].toUpperCase()}

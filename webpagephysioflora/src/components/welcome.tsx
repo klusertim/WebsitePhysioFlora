@@ -1,6 +1,6 @@
 import { Stack, Title, Group, Text, Image, Container, createStyles, Space, Flex, Button, Transition, Box } from "@mantine/core"
 import { useEffect, useRef, useState } from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link, animateScroll as scroll, Element } from "react-scroll";
 import LayeredWaves from "./layeredWaves"
 
 
@@ -51,7 +51,7 @@ export default function WelcomePage(){
 
     return (
 
-        <>
+        <Element name="home">
          <Group align="center" pl= "10%" mt="15vh" pr={0} pos="absolute" top={0} left={0} grow noWrap ref={ref} >
             
                     <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={4000}>
@@ -84,6 +84,6 @@ export default function WelcomePage(){
             <LayeredWaves offsetY={0} rotation={0} />
         </Flex>
         
-        </>
+        </Element>
     )
 }
