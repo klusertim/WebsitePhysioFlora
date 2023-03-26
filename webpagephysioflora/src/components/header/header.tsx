@@ -82,7 +82,7 @@ export default function Header({...props}){
                         styles={{display: 'none'}}
                     >
                     <Affix position={{top: 0, left:0}} zIndex={3} /* for the blur */>
-                        <Box className={classes.blur} h={120} w="100vw" /> 
+                        <Box className={classes.blur} h={120} w="100vw"/> 
                     </Affix>
                 </MediaQuery>
                 <MediaQuery

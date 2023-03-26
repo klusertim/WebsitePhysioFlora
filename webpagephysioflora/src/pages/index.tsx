@@ -6,6 +6,7 @@ import TeamPage from "@/components/team";
 import WelcomePage from "@/components/welcome";
 import { createStyles, Flex } from "@mantine/core";
 import LocationMap from "src/components/locationMap"
+import { LoadScript } from "@react-google-maps/api";
 
 // const useStyles = createStyles(({theme}) => ({
 //     container: {

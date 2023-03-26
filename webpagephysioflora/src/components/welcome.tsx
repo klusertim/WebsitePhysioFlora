@@ -1,6 +1,7 @@
 import { Stack, Title, Group, Text, Image, Container, createStyles, Space, Flex, Button, Transition, Box } from "@mantine/core"
 import { useEffect, useRef, useState } from "react";
 import { Link, animateScroll as scroll, Element } from "react-scroll";
+import Info1 from "./info/info1";
 import LayeredWaves from "./layeredWaves"
 
 
@@ -48,10 +49,11 @@ export default function WelcomePage(){
     };
   }, [ref]);
 
-
+  const [showInfo, setShowInfo] = useState(true);
     return (
 
         <Element name="home">
+          {showInfo && <Info1/>}
          <Group align="center" pl= "10%" mt="15vh" pr={0} pos="absolute" top={0} left={0} grow noWrap ref={ref} >
             
                     <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={4000}>
