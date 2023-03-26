@@ -1,8 +1,8 @@
-import { createStyles, Flex, Title, Stack, Text, Group, AspectRatio, Image } from "@mantine/core";
+import { createStyles, Flex, Title, Stack, Text, Group, AspectRatio, Image, Center, Space } from "@mantine/core";
 import { useRouter } from "next/router";
 import {Element} from 'react-scroll';
 import contactData from './contact.data'
-
+import Map from "../map";
 
 const useStyles = createStyles((theme) => ({
     title:{
@@ -40,8 +40,11 @@ export default function ContactPage(){
                         <Text className={classes.title}>{contactData.title[locale! as keyof typeof contactData.title].toUpperCase()}</Text>
                         <Title mt={-10}>{contactData.speech[locale! as keyof typeof contactData.speech]}</Title>
                 </Stack>  
-                <Group position="center">
-                    <AspectRatio ratio={16/9}></AspectRatio>
+                <Group position="left" noWrap ml="10vw">
+                    <Flex w="50vw" h="70vh" mt="lg">
+                        <Map style={{position: "relative"}}/>
+                    </Flex>
+                    <Space/>
                     <Stack>
                         <Text className={classes.address}>{contactData.address[locale! as keyof typeof contactData.address]}</Text>
                         <Group noWrap position="left">
