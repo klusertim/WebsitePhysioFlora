@@ -6,8 +6,8 @@
         "guid": {
             "rendered": "http:\/\/9d9gom4m.lx28.hoststar.website\/?p=38"
         },
-        "modified": "2023-03-26T15:44:57",
-        "modified_gmt": "2023-03-26T13:44:57",
+        "modified": "2023-03-26T16:29:48",
+        "modified_gmt": "2023-03-26T14:29:48",
         "slug": "wichtig",
         "status": "publish",
         "type": "post",
@@ -36,7 +36,7 @@
             "_et_gb_content_width": ""
         },
         "categories": [
-            1
+            19
         ],
         "tags": [],
         "_links": {
@@ -69,14 +69,14 @@
             ],
             "version-history": [
                 {
-                    "count": 2,
+                    "count": 3,
                     "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/posts\/38\/revisions"
                 }
             ],
             "predecessor-version": [
                 {
-                    "id": 40,
-                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/posts\/38\/revisions\/40"
+                    "id": 41,
+                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/posts\/38\/revisions\/41"
                 }
             ],
             "wp:attachment": [
@@ -102,6 +102,76 @@
                     "href": "https:\/\/api.w.org\/{rel}",
                     "templated": true
                 }
+            ]
+        },
+        "_embedded": {
+            "author": [
+                {
+                    "id": 2,
+                    "name": "Tim Kluser",
+                    "url": "",
+                    "description": "",
+                    "link": "http:\/\/9d9gom4m.lx28.hoststar.website\/author\/tim\/",
+                    "slug": "tim",
+                    "avatar_urls": {
+                        "24": "http:\/\/0.gravatar.com\/avatar\/69f5eedfd3bc5257bc6d21e2d9263e67?s=24&d=mm&r=g",
+                        "48": "http:\/\/0.gravatar.com\/avatar\/69f5eedfd3bc5257bc6d21e2d9263e67?s=48&d=mm&r=g",
+                        "96": "http:\/\/0.gravatar.com\/avatar\/69f5eedfd3bc5257bc6d21e2d9263e67?s=96&d=mm&r=g"
+                    },
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/users\/2"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/users"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "wp:term": [
+                [
+                    {
+                        "id": 19,
+                        "link": "http:\/\/9d9gom4m.lx28.hoststar.website\/category\/german\/",
+                        "name": "german",
+                        "slug": "german",
+                        "taxonomy": "category",
+                        "_links": {
+                            "self": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/categories\/19"
+                                }
+                            ],
+                            "collection": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/categories"
+                                }
+                            ],
+                            "about": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/taxonomies\/category"
+                                }
+                            ],
+                            "wp:post_type": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/posts?categories=19"
+                                }
+                            ],
+                            "curies": [
+                                {
+                                    "name": "wp",
+                                    "href": "https:\/\/api.w.org\/{rel}",
+                                    "templated": true
+                                }
+                            ]
+                        }
+                    }
+                ],
+                []
             ]
         }
     },
@@ -209,6 +279,76 @@
                     "templated": true
                 }
             ]
+        },
+        "_embedded": {
+            "author": [
+                {
+                    "id": 2,
+                    "name": "Tim Kluser",
+                    "url": "",
+                    "description": "",
+                    "link": "http:\/\/9d9gom4m.lx28.hoststar.website\/author\/tim\/",
+                    "slug": "tim",
+                    "avatar_urls": {
+                        "24": "http:\/\/0.gravatar.com\/avatar\/69f5eedfd3bc5257bc6d21e2d9263e67?s=24&d=mm&r=g",
+                        "48": "http:\/\/0.gravatar.com\/avatar\/69f5eedfd3bc5257bc6d21e2d9263e67?s=48&d=mm&r=g",
+                        "96": "http:\/\/0.gravatar.com\/avatar\/69f5eedfd3bc5257bc6d21e2d9263e67?s=96&d=mm&r=g"
+                    },
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/users\/2"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/users"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "wp:term": [
+                [
+                    {
+                        "id": 1,
+                        "link": "http:\/\/9d9gom4m.lx28.hoststar.website\/category\/unkategorisiert\/",
+                        "name": "Unkategorisiert",
+                        "slug": "unkategorisiert",
+                        "taxonomy": "category",
+                        "_links": {
+                            "self": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/categories\/1"
+                                }
+                            ],
+                            "collection": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/categories"
+                                }
+                            ],
+                            "about": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/taxonomies\/category"
+                                }
+                            ],
+                            "wp:post_type": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/posts?categories=1"
+                                }
+                            ],
+                            "curies": [
+                                {
+                                    "name": "wp",
+                                    "href": "https:\/\/api.w.org\/{rel}",
+                                    "templated": true
+                                }
+                            ]
+                        }
+                    }
+                ],
+                []
+            ]
         }
     },
     {
@@ -308,6 +448,76 @@
                     "href": "https:\/\/api.w.org\/{rel}",
                     "templated": true
                 }
+            ]
+        },
+        "_embedded": {
+            "author": [
+                {
+                    "id": 1,
+                    "name": "webmaster",
+                    "url": "http:\/\/9d9gom4m.lx28.hoststar.website",
+                    "description": "",
+                    "link": "http:\/\/9d9gom4m.lx28.hoststar.website\/author\/webmaster\/",
+                    "slug": "webmaster",
+                    "avatar_urls": {
+                        "24": "http:\/\/0.gravatar.com\/avatar\/91cc9f888ce6a2e381d98dd75bc6ceab?s=24&d=mm&r=g",
+                        "48": "http:\/\/0.gravatar.com\/avatar\/91cc9f888ce6a2e381d98dd75bc6ceab?s=48&d=mm&r=g",
+                        "96": "http:\/\/0.gravatar.com\/avatar\/91cc9f888ce6a2e381d98dd75bc6ceab?s=96&d=mm&r=g"
+                    },
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/users\/1"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/users"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "wp:term": [
+                [
+                    {
+                        "id": 1,
+                        "link": "http:\/\/9d9gom4m.lx28.hoststar.website\/category\/unkategorisiert\/",
+                        "name": "Unkategorisiert",
+                        "slug": "unkategorisiert",
+                        "taxonomy": "category",
+                        "_links": {
+                            "self": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/categories\/1"
+                                }
+                            ],
+                            "collection": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/categories"
+                                }
+                            ],
+                            "about": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/taxonomies\/category"
+                                }
+                            ],
+                            "wp:post_type": [
+                                {
+                                    "href": "http:\/\/9d9gom4m.lx28.hoststar.website\/wp-json\/wp\/v2\/posts?categories=1"
+                                }
+                            ],
+                            "curies": [
+                                {
+                                    "name": "wp",
+                                    "href": "https:\/\/api.w.org\/{rel}",
+                                    "templated": true
+                                }
+                            ]
+                        }
+                    }
+                ],
+                []
             ]
         }
     }

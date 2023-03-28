@@ -1,3 +1,4 @@
+import InfoBoxProvider from "@/contexts/infobox.provider";
 import { Stack, Title, Group, Text, Image, Container, createStyles, Space, Flex, Button, Transition, Box } from "@mantine/core"
 import { useEffect, useRef, useState } from "react";
 import { Link, animateScroll as scroll, Element } from "react-scroll";
@@ -51,9 +52,9 @@ export default function WelcomePage(){
 
   const [showInfo, setShowInfo] = useState(true);
     return (
-
+      <InfoBoxProvider>
         <Element name="home">
-          {showInfo && <Info1/>}
+          <Info1/>
          <Group align="center" pl= "10%" mt="15vh" pr={0} pos="absolute" top={0} left={0} grow noWrap ref={ref} >
             
                     <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={4000}>
@@ -87,5 +88,6 @@ export default function WelcomePage(){
         </Flex>
         
         </Element>
+      </InfoBoxProvider>
     )
 }
