@@ -104,7 +104,7 @@ export default function Header({...props}){
                             spacing={50}
                             >
                                 {menuItems?.map(({path, label}, i) => (
-                                    <Link to={path!} spy={true} smooth={true} duration={500}>
+                                    <Link to={path!} spy={true} smooth={true} duration={500} key={i}>
                                         <Text className={classes.links} key={i} weight="bold">
                                             {label[locale! as keyof PathsType["label"]].toUpperCase()}
                                         </Text>
