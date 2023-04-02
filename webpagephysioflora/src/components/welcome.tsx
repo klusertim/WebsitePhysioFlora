@@ -1,9 +1,13 @@
-import InfoBoxProvider from "@/contexts/infobox.provider";
-import { Stack, Title, Group, Text, Image, Container, createStyles, Space, Flex, Button, Transition, Box } from "@mantine/core"
-import { useEffect, useRef, useState } from "react";
+import { Stack, Title, Group, Text, Image, Container, createStyles, Space, Flex, Button, Transition, Box, Paper, ActionIcon } from "@mantine/core"
+import { useContext, useEffect, useRef, useState } from "react";
 import { Link, animateScroll as scroll, Element } from "react-scroll";
+// import Info1 from "./info/info1";
+import Info2 from "./info/info2";
+import LayeredWaves from "./layeredWaves";
+import {RxInfoCircled} from "react-icons/rx";
+import {InfoBoxContext } from "@/contexts/infobox.context";
+import Info3 from "./info/info3";
 import Info1 from "./info/info1";
-import LayeredWaves from "./layeredWaves"
 
 
 const useStyles = createStyles((theme) => ({
@@ -17,7 +21,8 @@ const useStyles = createStyles((theme) => ({
     },
     button:{
         backgroundColor: theme.colors.pink
-    }
+    },
+    
   }));
 
 export default function WelcomePage(){
@@ -25,6 +30,8 @@ export default function WelcomePage(){
     const {classes} = useStyles();
     const [opened, setOpened] = useState(false);
     const ref = useRef(null);
+    const {infoBoxOpen, setInfoBoxOpen} = useContext(InfoBoxContext)
+
 
 
   useEffect(() => { // observe when the elemt is shown on the dom to ease in the font
@@ -52,10 +59,9 @@ export default function WelcomePage(){
 
   const [showInfo, setShowInfo] = useState(true);
     return (
-      <InfoBoxProvider>
         <Element name="home">
-          <Info1/>
-         <Group align="center" pl= "10%" mt="15vh" pr={0} pos="absolute" top={0} left={0} grow noWrap ref={ref} >
+          {/* <Info2/> */}
+         <Group align="center" pl= "10%" pr="10vw" mt="15vh" pos="absolute" top={0} left={0} grow noWrap ref={ref} >
             
                     <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={4000}>
                         {(styles) => 
@@ -75,9 +81,14 @@ export default function WelcomePage(){
                     </Transition>
                     <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={6000}>
                     {(styles) => 
-                    <Flex align="center" justify="center" mb="lg" ml="5vw" mr={10} style = {styles}>
-                        <Image src="undrawDancingPeople.svg" alt="dancing people" />
-                    </Flex>}
+                    <Flex align="center" justify="center" mb="lg" ml="5vw" mr={10}>
+
+                        {!infoBoxOpen && <Flex w="40vw" h="70vh" style={{backgroundColor:"transparent"}}>
+                           <Image src="undrawDancingPeople.svg" alt="dancing people" style={styles} />
+                        </Flex>}
+                        { <Info1/> }
+                    </Flex>
+                  }
                     </Transition>
 
         </Group>
@@ -88,6 +99,5 @@ export default function WelcomePage(){
         </Flex>
         
         </Element>
-      </InfoBoxProvider>
     )
 }
