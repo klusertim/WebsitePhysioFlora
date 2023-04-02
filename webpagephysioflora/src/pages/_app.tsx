@@ -2,6 +2,8 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
 import "@fontsource/comfortaa";
+import InfoBoxProvider from "@/contexts/infobox.provider";
+
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -30,7 +32,9 @@ export default function App(props: AppProps) {
           
         }}
       >
-        <Component {...pageProps} />
+        <InfoBoxProvider>
+          <Component {...pageProps} />
+        </InfoBoxProvider>
       </MantineProvider>
     </>
   );

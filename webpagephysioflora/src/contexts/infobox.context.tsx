@@ -1,8 +1,12 @@
 import { createContext } from "react";
 
+
+
 interface Provider {
-    infoBoxOpen?: boolean,
-    setInfoBoxOpen: ((_:boolean) => void)
+    infoBoxOpen: boolean,
+    setInfoBoxOpen: ((_:boolean) => void),
+    // infoBoxOpenFrench: boolean,
+    // setInfoBoxOpenFrench: ((_:boolean) => void)
     // setDrawerOpen?: (x:boolean) => boolean
 }
 
