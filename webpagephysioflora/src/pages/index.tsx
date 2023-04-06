@@ -1,4 +1,4 @@
-import ContactPage from "@/components/contact/contact";
+import ContactPage, { Bubble } from "@/components/contact/contact";
 import Header from "@/components/header/header";
 import LayeredWaves from "@/components/layeredWaves";
 import OfferPage from "@/components/offer/offer";

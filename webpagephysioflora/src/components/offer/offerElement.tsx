@@ -1,13 +1,29 @@
-import { Card, Group, createStyles, Text, Flex } from "@mantine/core";
+import { Card, Group, createStyles, Text, Flex, Title, Button, Modal } from "@mantine/core";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
+interface Data{
+    title:{
+        fr: string
+        de: string
+    },
+    description: {
+        fr: string
+        de: string
+    }
+}
 
 const useStyles = createStyles((theme) => ({
    
 }));
 
-export default function OfferElement(){
 
-  const {classes} = useStyles();
+
+export default function OfferElement({title, description}: Data){
+
+    const {classes} = useStyles();
+    const {locale} : {locale?: string} = useRouter();
+    const [modalOpen, setModalOpen] = useState(false);
 
   function BarbellSVG(){
     return(
@@ -35,15 +51,35 @@ export default function OfferElement(){
 
   return(
     <>
-        <Card radius="sm" shadow="sm" p="lg" >
+        <Modal opened={modalOpen} onClose={() => setModalOpen(false)}>
+            <Card radius="md" p="lg" pl={0}>
+                    <Group noWrap>
+                        <Flex w={100} h={100} align="center" justify="center">
+                            <BarbellSVG/>
+                        </Flex>
+                        <Text size="xl" weight={700}>{locale == "fr" ? title.fr : title.de}</Text>
+                    </Group>
+                <Text size="sm" color="dimmed">
+                    {locale == "fr" ? description.fr : description.de}
+                </Text>
+            </Card>
+        </Modal>
+
+        <Card radius="md" p="lg" pl={0}>
                 <Group noWrap>
-                    <BarbellSVG/>
-                    <Text weight={700}>Aktive Bewegungs- und Sporttherapie</Text>
+                    <Flex w={100} h={100} align="center" justify="center">
+                        <BarbellSVG/>
+                    </Flex>
+                    <Text size="xl" weight={700}>{locale == "fr" ? title.fr : title.de}</Text>
                 </Group>
             <Text size="sm" color="dimmed">
-                With Fjord Tours you can explore more of the magical fjord landscapes with tours and
-                activities on and around the fjords of Norway
+                {locale == "fr" ? description.fr : description.de}
             </Text>
+            <Flex w="100%" justify="center" pt={5}>
+                <Button onClick={() => setModalOpen(true)} compact size="xs" variant="outline" radius="lg" color="gray"> 
+                    {locale == "fr" ? "lire plus" : "mehr erfahren"}
+                </Button>
+            </Flex>
         </Card>
     </>
   )
