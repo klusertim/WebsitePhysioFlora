@@ -67,7 +67,7 @@ export default function WelcomePage(){
                         {(styles) => 
                         <Stack justify="flex-start" align="flex-start" style={styles}>
 
-                        <Title align="left" maw="500px" size={40}>Physiotherapie Ihres Vertrauens in Biel</Title>
+                        <Title align="left" maw="500px" size={40} miw={334}>Physiotherapie Ihres Vertrauens in Biel</Title>
                         <Text align="left" size="xl" maw="500px">Ob <Text span weight="bold" className={classes.colorText}>Sportverletzung</Text>, <Text span weight="bold" className={classes.colorText}>Hexenschuss</Text> oder andere Beschwerden</Text>
                         <Text align="left" size="lg" maw="500px">Unser Team hilft Ihnen gerne, wieder topfit zu werden.</Text>
                         <Space h="3vh"/>
@@ -81,12 +81,12 @@ export default function WelcomePage(){
                     </Transition>
                     <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={6000}>
                     {(styles) => 
-                    <Flex align="center" justify="center" mb="lg" ml="5vw" mr={10}>
+                    <Flex align="center" justify="center" mb="lg" ml="5vw" mr={10} w="40vw" h="70vh">
 
                         {!infoBoxOpen && <Flex w="40vw" h="70vh" style={{backgroundColor:"transparent"}}>
                            <Image src="undrawDancingPeople.svg" alt="dancing people" style={styles} />
                         </Flex>}
-                        { <Info1/> }
+                        <Info1/>
                     </Flex>
                   }
                     </Transition>

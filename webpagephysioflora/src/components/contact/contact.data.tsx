@@ -5,7 +5,7 @@ export default {
     },
     speech: {
         fr: "bla bla bla!",
-        de: "Wir freuen us auf Sie!"
+        de: "Wir freuen uns auf Sie!"
     },
     address:{
         fr: "Physiotherapie Flora GMBH \nFlorastrasse 30a | 2502 Bienne",
