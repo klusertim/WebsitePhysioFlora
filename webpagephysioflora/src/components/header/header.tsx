@@ -7,6 +7,9 @@ import DrawerProvider from "@/contexts/drawer.provider";
 import {Link} from 'react-scroll';
 import {useRouter} from 'next/router';
 import NextLink from 'next/link'; // because of default export we can import with different name
+import { useWindowScroll } from "@mantine/hooks";
+import { useEffect, useState } from "react";
+import {animateScroll} from "react-scroll"
 
 const useStyles = createStyles((theme, _params, getRef) => ({
     container: {
@@ -66,11 +69,19 @@ const useStyles = createStyles((theme, _params, getRef) => ({
 
 
 export default function Header({...props}){
-    console.log(menuItems)
+    // console.log(menuItems);
     const {classes} = useStyles();
     const mobileBound:number = 820;
     const {locale}:{locale?:string} = useRouter();
-    console.log(locale)
+    // console.log(locale);
+    const [scroll] = useWindowScroll();
+    const [lastYState, setLastYState] = useState(0);
+
+    useEffect(() => {
+        console.log("lastYState ", lastYState);
+        animateScroll.scrollTo(lastYState, {delay: 0, duration: 0})
+    }, [locale]);
+
     return(
         <DrawerProvider>
             <>
@@ -103,6 +114,7 @@ export default function Header({...props}){
                             ml={50}
                             spacing={50}
                             >
+                                {/* <Text>{scroll.y}</Text> */}
                                 {menuItems?.map(({path, label}, i) => (
                                     <Link to={path!} spy={true} smooth={true} duration={500} key={i} offset={-80}>
                                         <Text className={classes.links} key={i} weight="bold">
@@ -111,11 +123,9 @@ export default function Header({...props}){
                                     </Link>
                                 ))}
                                 
-                                <Text component={NextLink} href="" locale= {locale=="de"? "fr": "de"} className={classes.links} weight="bold" /* NextLink as component to not inherit style */>
+                                <Text component={NextLink} href="" locale= {locale=="de"? "fr": "de"} className={classes.links} weight="bold" onClick={() => setLastYState(scroll.y)}/* NextLink as component to not inherit style */>
                                     {locale == "de" ? "FRANÇAIS" : "DEUTSCH"}
                                 </Text>
-
-                                
                             </Group>
                         </Group>
                     </Affix>
