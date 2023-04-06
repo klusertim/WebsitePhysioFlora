@@ -9,7 +9,7 @@ interface PathsType {
 }
 const menuItems : PathsType[] =  [
     {
-        path: 'angebot',
+        path: 'offer',
         label: {fr: "Offre", de: "Angebot"},
 
     },

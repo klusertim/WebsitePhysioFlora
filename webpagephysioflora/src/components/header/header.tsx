@@ -74,11 +74,11 @@ export default function Header({...props}){
     return(
         <DrawerProvider>
             <>
-                <MediaQuery largerThan={mobileBound} styles={{display: "none"}}>
+                <MediaQuery largerThan="sm" styles={{display: "none"}}>
                     <DrawerMenu/>
                 </MediaQuery>
                 <MediaQuery
-                        smallerThan={mobileBound}
+                        smallerThan="sm"
                         styles={{display: 'none'}}
                     >
                     <Affix position={{top: 0, left:0}} zIndex={3} /* for the blur */>
@@ -86,7 +86,7 @@ export default function Header({...props}){
                     </Affix>
                 </MediaQuery>
                 <MediaQuery
-                        smallerThan={mobileBound}
+                        smallerThan="sm"
                         styles={{display: 'none'}}
                     >
                     <Affix position={{top: 0, left:0}} zIndex={4}>
@@ -104,7 +104,7 @@ export default function Header({...props}){
                             spacing={50}
                             >
                                 {menuItems?.map(({path, label}, i) => (
-                                    <Link to={path!} spy={true} smooth={true} duration={500} key={i}>
+                                    <Link to={path!} spy={true} smooth={true} duration={500} key={i} offset={-80}>
                                         <Text className={classes.links} key={i} weight="bold">
                                             {label[locale! as keyof PathsType["label"]].toUpperCase()}
                                         </Text>
@@ -112,7 +112,7 @@ export default function Header({...props}){
                                 ))}
                                 
                                 <Text component={NextLink} href="" locale= {locale=="de"? "fr": "de"} className={classes.links} weight="bold" /* NextLink as component to not inherit style */>
-                                    {locale == "de" ? "Francais" : "Deutsch"}
+                                    {locale == "de" ? "FRANÇAIS" : "DEUTSCH"}
                                 </Text>
 
                                 

@@ -161,7 +161,7 @@ export default function Info2(){
         <>
                         
         {/* <Flex w="45vw" h="70vh" mt="5vh" pos="relative" align="center" justify="center" className={classes.container}> */}
-
+        {/* <Flex w="40vw" h="70vh" style={{backgroundColor:"transparent"}}> */}
             {infoBoxOpen &&
                 
                 // <motion.div className={classes.paper} >

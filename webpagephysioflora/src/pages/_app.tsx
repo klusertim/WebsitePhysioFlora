@@ -29,7 +29,12 @@ export default function App(props: AppProps) {
           headings:{
             fontFamily: "Montserrat"
           },
-          
+          breakpoints:{
+            sm: 820 
+          },
+          spacing: {
+            xl: 80
+          }
         }}
       >
         <InfoBoxProvider>
