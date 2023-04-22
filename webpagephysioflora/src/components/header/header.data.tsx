@@ -1,19 +1,27 @@
-export default [
+interface PathsType {
+    path: string;
+    label:{
+        fr: string;
+        de: string;
+    }
+    
+    
+}
+const menuItems : PathsType[] =  [
     {
-        path: 'angebot',
-        label: 'Angebot'
+        path: 'offer',
+        label: {fr: "Offre", de: "Angebot"},
 
     },
     {
-        paht: 'team',
-        label: 'Team'
+        path: 'team',
+        label: {fr: "Team", de: "Team"},
+    
     },
     {
-        path: 'kontakt',
-        label: 'Kontakt'
+        path: 'contact',
+        label: {fr: "Contact", de: "Kontakt"},
     },
-    {
-        paht: '',
-        label: 'Francais'
-    }
 ]
+export type {PathsType}
+export {menuItems};

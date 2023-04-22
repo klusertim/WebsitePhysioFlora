@@ -2,6 +2,8 @@ import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { MantineProvider } from '@mantine/core';
 import "@fontsource/comfortaa";
+import InfoBoxProvider from "@/contexts/infobox.provider";
+
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
@@ -27,10 +29,17 @@ export default function App(props: AppProps) {
           headings:{
             fontFamily: "Montserrat"
           },
-          
+          breakpoints:{
+            sm: 820 
+          },
+          spacing: {
+            xl: 80
+          }
         }}
       >
-        <Component {...pageProps} />
+        <InfoBoxProvider>
+          <Component {...pageProps} />
+        </InfoBoxProvider>
       </MantineProvider>
     </>
   );

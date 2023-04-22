@@ -9,12 +9,11 @@ interface Props{
     className: string
 }
 
-export default function Logo({className}:Props) {
+export default function Logo() {
     return(
         <Group
             spacing= "xs"
             noWrap
-            className={className}
         >
             <Stack
             spacing="xs"

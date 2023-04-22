@@ -42,11 +42,11 @@ export default function LocationMap() {
 // }
 // window.initMap = initMap;
 
-  const {isLoaded} = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-  });
+  // const {isLoaded} = useLoadScript({
+  //   googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
+  // });
 
-    if(!isLoaded) return <div>Loading ...</div>
+    // if(!isLoaded) return <div>Loading ...</div>
     return <Map/>
 }
 
@@ -56,12 +56,13 @@ function Map(){
   const center = useMemo(() => ({lat: 47.138568697122636, lng: 7.249745541680579}), []);
 
   return (
-    <Flex w="50%" h="50%" className={classes.mapContainer}>
-      <AspectRatio ratio={16 / 9} >
-        <GoogleMap zoom = {15} center= {center} mapContainerClassName = "map-container">
-          <MarkerF position={{lat: 47.138568697122636, lng: 7.249745541680579}}/>
-        </GoogleMap>
-      </AspectRatio> 
-    </Flex>
+    // <Flex w="50%" h="50%" className={classes.mapContainer}>
+    //   <AspectRatio ratio={16 / 9} >
+    //     <GoogleMap zoom = {15} center= {center} mapContainerClassName = "map-container">
+    //       <MarkerF position={{lat: 47.138568697122636, lng: 7.249745541680579}}/>
+    //     </GoogleMap>
+    //   </AspectRatio> 
+    // </Flex>
+    <></>
   );
 }
