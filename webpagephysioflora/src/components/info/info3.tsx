@@ -120,19 +120,19 @@ export default function Info2(){
     useEffect(()=>{
         setIsGerman(locale=="de")
         if (localData && localData.length > 0){
-            console.log("it's open")
+            // console.log("it's open")
             setInfoBoxOpen(true)
         }else{
             setInfoBoxOpen(false)
         }
         
-        console.log(isGerman)
-        console.log(infoBoxOpen)
-        console.log("German: ", germanData)
-        console.log("French: ", frenchData)
-        console.log("Data: ", data)
-        console.log("localData: ", localData)
-        console.log("germanID: ", categoryId.german)
+        // console.log(isGerman)
+        // console.log(infoBoxOpen)
+        // console.log("German: ", germanData)
+        // console.log("French: ", frenchData)
+        // console.log("Data: ", data)
+        // console.log("localData: ", localData)
+        // console.log("germanID: ", categoryId.german)
 
         
     }, [isGerman, localData])

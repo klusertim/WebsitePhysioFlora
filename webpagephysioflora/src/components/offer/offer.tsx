@@ -42,7 +42,7 @@ export default function OfferPage(){
 
     return (
         <Element name="offer" marginHeight={-1000}>
-            <Flex h="100vh" w="100vw" m={0} justify="flex-start" direction="column" p={0} pt="xl" mt={-0.257} >
+            <Flex w="100vw" m={0} justify="flex-start" direction="column" p={0} pt="xl" mt={-0.257} >
                 <Box ref={ref}>
                     <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={2000} >
                         {(styles) => 

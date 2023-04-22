@@ -38,12 +38,12 @@ export default function InfoData(){
       })
     
     if (!categoryData){
-      console.log("loading Category Data")
+      // console.log("loading Category Data")
     }else{
-      console.log(categoryData)
-      germanCategory = categoryData.filter((cat) => cat.name == "german")[0].id
-      frenchCategory = categoryData.filter((cat) => cat.name == "french")[0].id
-      publishCategory = categoryData.filter((cat) => cat.name == "publish")[0].id
+      // console.log(categoryData)
+      // germanCategory = categoryData.filter((cat) => cat.name == "german")[0].id
+      // frenchCategory = categoryData.filter((cat) => cat.name == "french")[0].id
+      // publishCategory = categoryData.filter((cat) => cat.name == "publish")[0].id
     }
 
     fetch(`http://9d9gom4m.lx28.hoststar.website/wp-json/wp/v2/posts?categories=${isGerman ? germanCategory : frenchCategory}&categories=${publishCategory}&_embed`)
@@ -80,9 +80,11 @@ export default function InfoData(){
   
   return(
     <TypographyStylesProvider>
-      {data.map((post) => {
-        <div dangerouslySetInnerHTML={{ __html: post.content.rendered }}/>
-        }
+      {data.map((post, i) => (
+        <div key={i}>
+          <div dangerouslySetInnerHTML={{ __html: post.content.rendered }}/>
+        </div>
+      )
       )}
     </TypographyStylesProvider>
   );

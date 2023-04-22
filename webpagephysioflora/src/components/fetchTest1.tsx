@@ -41,7 +41,7 @@ export default function FetchTest1(){
     useEffect(()=>{
         if (data && data.length > 0 ) {
             setInfoBoxOpen(true)
-            console.log(data[0].content.rendered)
+            // console.log(data[0].content.rendered)
           }
         else {setInfoBoxOpen(false)}
     }, [data])

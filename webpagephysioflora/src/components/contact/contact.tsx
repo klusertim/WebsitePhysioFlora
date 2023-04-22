@@ -4,7 +4,9 @@ import {Element} from 'react-scroll';
 import contactData from './contact.data'
 import Map from "../map/map";
 import FloraTitle from "../floraTitle";
-import { motion} from "framer-motion";
+import { MotionValue, motion, useScroll, useTransform} from "framer-motion";
+import { MutableRefObject, useRef } from "react";
+import { AppProps } from "next/app";
 
 
 const useStyles = createStyles((theme) => ({
@@ -24,10 +26,19 @@ const useStyles = createStyles((theme) => ({
     },
     weekdays:{
         lineHeight: 0.4
-    }
+    },
+    
   }));
 
-export function Bubble({left, top} : React.CSSProperties) {
+  interface Props{
+    left: number,
+    top: number,
+    y: MotionValue<string>
+  }
+
+export function Bubble({left, top, y}: Props) {
+
+
     const svgVariants = {
         visible:{
             scaleX: [1, 1.1, 0.9, 1],
@@ -42,7 +53,7 @@ export function Bubble({left, top} : React.CSSProperties) {
     
     }
     return(
-        <div style={{zIndex: -5, left: left, top: top, position:"absolute"}}>
+        <motion.div style={{left: left, top: top, zIndex: -5, position:"absolute", y}} >
             <motion.svg  
             width="1000" height="1100" viewBox="0 0 1217 1296" xmlns="http://www.w3.org/2000/svg"
             variants = {svgVariants}
@@ -55,24 +66,31 @@ export function Bubble({left, top} : React.CSSProperties) {
                     fillOpacity="0.15"
                 />
             </motion.svg>   
-        </div>
+        </motion.div>
     )
 }
 
 export default function ContactPage(){
 
     const {classes} = useStyles();
-
     const {locale} : {locale?: string} = useRouter();
+    const ref = useRef(null)
+    let {scrollYProgress} = useScroll(
+        {
+            target: ref
+        }
+    )
+    console.log(scrollYProgress)
+    let y = useTransform(scrollYProgress, [0, 1], ["15%", "-5%"])
 
     return (
         <>
             {/* <Bubble left={-500} top={1000}/> */}
 
-        <Element name="kontakt">
-            <Flex h="100vh" w="100vw" m={0} p={0} pt="xl" justify="flex-start" mt={-0.257} direction="column" pos="relative">
+        <Element name="contact">
+            <Flex  h="100vh" w="100vw" m={0} p={0} pt="xl" justify="flex-start" mt={-0.257} direction="column" pos="relative">
 
-                <Bubble left={-500} top={-100}/>
+                <Bubble  left={-500} top={-100} y={y} />
                 <FloraTitle title={contactData.title} speech={contactData.speech}/>
                 <Flex justify="flex-start" align="flex-start" ml="10vw">
                     <Flex w="50vw" h="70vh">
@@ -80,21 +98,24 @@ export default function ContactPage(){
                     </Flex>
                     <Space miw={70}/>
                     <Stack justify= "flex-start">
-                        <Text className={classes.address}>{contactData.address[locale! as keyof typeof contactData.address]}</Text>
+                        <Text ref={ref} className={classes.address}>{contactData.address[locale! as keyof typeof contactData.address]}</Text>
                         <Group noWrap position="left">
                             <Image src="mail.svg" alt="mailIcon" height={20} width={20} fit="contain" />
                             <Text>{contactData.mail}</Text>
                         </Group>
                         <Group noWrap position="left">
-                            <Image src="phone.svg" alt="phone" height={20} width={20} fit="contain" />
+                            <Image src="phone.svg" alt="phone" height={20} width={20} fit="contain"/>
                             <Text>{contactData.phone}</Text>
                         </Group>
                         <Stack>
-                            <Text className={classes.openHeader} weight="bolder">{contactData.open[locale! as keyof typeof contactData.open] + ":"}</Text>
+                            <Text  className={classes.openHeader} weight="bolder">{contactData.open[locale! as keyof typeof contactData.open] + ":"}</Text>
                             {contactData.weekdays[locale! as keyof typeof contactData.weekdays].map((day, i) => 
                                 <Text className={classes.weekdays} key={i}>{day + ": " + "10-17"}</Text>
                                 )
                             }
+                            <motion.div style={{y}}>
+                                Hello
+                            </motion.div>
                         </Stack>
                     </Stack>
                 </Flex>
