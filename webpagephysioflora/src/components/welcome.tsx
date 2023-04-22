@@ -61,35 +61,36 @@ export default function WelcomePage(){
     return (
         <Element name="home">
           {/* <Info2/> */}
+        
          <Group align="center" pl= "10%" pr="10vw" mt="15vh" pos="absolute" top={0} left={0} grow noWrap ref={ref} >
             
-                    <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={4000}>
-                        {(styles) => 
-                        <Stack justify="flex-start" align="flex-start" style={styles}>
+            <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={4000}>
+                {(styles) => 
+                <Stack justify="flex-start" align="flex-start" style={styles}>
 
-                        <Title align="left" maw="500px" size={40} miw={334}>Physiotherapie Ihres Vertrauens in Biel</Title>
-                        <Text align="left" size="xl" maw="500px">Ob <Text span weight="bold" className={classes.colorText}>Sportverletzung</Text>, <Text span weight="bold" className={classes.colorText}>Hexenschuss</Text> oder andere Beschwerden</Text>
-                        <Text align="left" size="lg" maw="500px">Unser Team hilft Ihnen gerne, wieder topfit zu werden.</Text>
-                        <Space h="3vh"/>
-                        <Flex w="100%" justify="center"  >
-                          <Link to="kontakt" spy={true} smooth={true} duration={500}>
-                            <Button className={classes.button} variant="filled"  opacity={0.9} >Kontaktieren Sie uns jetzt</Button>
-                          </Link>
-                        </Flex>
-                        </Stack>
-                        }
-                    </Transition>
-                    <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={6000}>
-                    {(styles) => 
-                    <Flex align="center" justify="center" mb="lg" ml="5vw" mr={10} w="40vw" h="70vh">
+                <Title align="left" maw="500px" size={40} miw={334}>Physiotherapie Ihres Vertrauens in Biel</Title>
+                <Text align="left" size="xl" maw="500px">Ob <Text span weight="bold" className={classes.colorText}>Sportverletzung</Text>, <Text span weight="bold" className={classes.colorText}>Hexenschuss</Text> oder andere Beschwerden</Text>
+                <Text align="left" size="lg" maw="500px">Unser Team hilft Ihnen gerne, wieder topfit zu werden.</Text>
+                <Space h="3vh"/>
+                <Flex w="100%" justify="center"  >
+                  <Link to="kontakt" spy={true} smooth={true} duration={500}>
+                    <Button className={classes.button} variant="filled"  opacity={0.9} >Kontaktieren Sie uns jetzt</Button>
+                  </Link>
+                </Flex>
+                </Stack>
+                }
+            </Transition>
+            <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={6000}>
+            {(styles) => 
+            <Flex align="center" justify="center" mb="lg" ml="5vw" mr={10} w="40vw" h="70vh">
 
-                        {!infoBoxOpen && <Flex w="40vw" h="70vh" style={{backgroundColor:"transparent"}}>
-                           <Image src="undrawDancingPeople.svg" alt="dancing people" style={styles} />
-                        </Flex>}
-                        <Info1/>
-                    </Flex>
-                  }
-                    </Transition>
+                {!infoBoxOpen && <Flex w="40vw" h="70vh" style={{backgroundColor:"transparent"}}>
+                    <Image src="undrawDancingPeople.svg" alt="dancing people" style={styles} />
+                </Flex>}
+                <Info1/>
+            </Flex>
+          }
+            </Transition>
 
         </Group>
         <Flex h="100vh" w="100vw" m={0} p={0} align="flex-end" className={classes.containerBorder} >

@@ -1,4 +1,4 @@
-import { Container, createStyles, Drawer, Flex, MediaQuery, Text, Affix, Group, Button, Box } from "@mantine/core";
+import { Container, createStyles, Drawer, Flex, MediaQuery, Text, Affix, Group, Button, Box, Stack } from "@mantine/core";
 import {menuItems, PathsType} from './header.data'
 import Logo from "../logo";
 import LayeredWaves from "../layeredWaves";
@@ -10,6 +10,7 @@ import NextLink from 'next/link'; // because of default export we can import wit
 import { useWindowScroll } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import {animateScroll} from "react-scroll"
+import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
     container: {
@@ -29,6 +30,9 @@ const useStyles = createStyles((theme, _params, getRef) => ({
           fontSize: theme.fontSizes.xs,
         },
       },
+    },
+    progressBar:{
+        backgroundColor: theme.colors.pink
     },
     hidden:{
         display: 'none'
@@ -52,9 +56,6 @@ const useStyles = createStyles((theme, _params, getRef) => ({
         // filter: "blur(5px)",
         // backgroundColor: "white"
     },
-    logo:{
-
-    },
   
     child: {
       // assign ref to element
@@ -74,13 +75,17 @@ export default function Header({...props}){
     const mobileBound:number = 820;
     const {locale}:{locale?:string} = useRouter();
     // console.log(locale);
-    const [scroll] = useWindowScroll();
+    // const [scroll] = useWindowScroll();
     const [lastYState, setLastYState] = useState(0);
+    const {scrollY:scroll, scrollYProgress} = useScroll();
+    let t = useSpring(scrollYProgress, {stiffness: 100, damping: 50});
+    let w = useTransform(t, [0, 1], ["0vw", "100vw"])
 
     useEffect(() => {
-        console.log("lastYState ", lastYState);
+        // console.log("lastYState ", lastYState);
         animateScroll.scrollTo(lastYState, {delay: 0, duration: 0})
     }, [locale]);
+
 
     return(
         <DrawerProvider>
@@ -101,9 +106,10 @@ export default function Header({...props}){
                         styles={{display: 'none'}}
                     >
                     <Affix position={{top: 0, left:0}} zIndex={4}>
-                        <Group pl="5%" position="apart" w="100vw" pt={20} pb={10} noWrap grow bg="white" opacity={0.8} h={120}>
+                        <Stack spacing={0}>
+                        <Group pl="5%" position="apart" w="100vw" pt={20} pb={10} noWrap grow bg="white" opacity={0.9} h={120}>
                             <Link to={"home"} spy={true} smooth={true} duration={500}>
-                                <Logo className={classes.logo}/>
+                                <Logo />
                             </Link>
                             <Group 
                             noWrap
@@ -123,11 +129,13 @@ export default function Header({...props}){
                                     </Link>
                                 ))}
                                 
-                                <Text component={NextLink} href="" locale= {locale=="de"? "fr": "de"} className={classes.links} weight="bold" onClick={() => setLastYState(scroll.y)}/* NextLink as component to not inherit style */>
+                                <Text component={NextLink} href="" locale= {locale=="de"? "fr": "de"} className={classes.links} weight="bold" onClick={() => setLastYState(scroll.get())}/* NextLink as component to not inherit style */>
                                     {locale == "de" ? "FRANÇAIS" : "DEUTSCH"}
                                 </Text>
                             </Group>
                         </Group>
+                        <motion.div style={{width: w, height: "2px", marginTop: "-2px", zIndex: 5}} className={classes.progressBar}/>
+                        </Stack>
                     </Affix>
                 </MediaQuery>
             </>

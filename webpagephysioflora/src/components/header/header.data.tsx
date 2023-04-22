@@ -19,7 +19,7 @@ const menuItems : PathsType[] =  [
     
     },
     {
-        path: 'kontakt',
+        path: 'contact',
         label: {fr: "Contact", de: "Kontakt"},
     },
 ]

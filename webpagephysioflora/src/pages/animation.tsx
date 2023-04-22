@@ -31,7 +31,7 @@ const icon = {
 export default function Animation(){
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
-    console.log(scrollYProgress)
+    // console.log(scrollYProgress)
     const [isOpen, setIsOpen] = useState(false);
     return(
         <>
