@@ -26,6 +26,7 @@ export default function Index(){
         <TeamPage/>
         <ContactPage/>
         <LocationMap/>
+        <div style={{height: 2000, width: "100vw", backgroundColor: "green"}}></div>
         </>
     )
 }

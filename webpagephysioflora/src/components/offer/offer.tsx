@@ -49,9 +49,9 @@ export default function OfferPage(){
 
                           <>
                             <FloraTitle title={offerData.title} speech={offerData.speech} />
-                            <Grid m="10vw" mt="5vh" gutter="md">
+                            <Grid m="10vw" mt="5vh" gutter="lg" justify="center">
                                 {offerData.offerArr.map(({title, description}, i) => (
-                                <Grid.Col  span={12} xs={6} lg={4} xl={4} key={i}>
+                                <Grid.Col  span={12} xs={12} sm={6} lg={6} xl={4} key={i}>
                                     <OfferElement title={title} description={description}/>
                                 </Grid.Col>
                                 )

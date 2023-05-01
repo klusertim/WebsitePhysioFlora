@@ -1,10 +1,13 @@
-import { createStyles, Flex, Title, Box, Transition, Grid, Group, Image, Stack, Text, Space } from "@mantine/core";
+import { createStyles, Flex, Title, Box, Transition, Grid, Group, Image, Stack, Text, Space, MediaQuery } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import {Element} from 'react-scroll';
 import FloraTitle from "../floraTitle";
+import teamData from "./team.data";
+import TeamElementBig from "./teamElementBig";
+import { useMediaQuery } from "@mantine/hooks";
 
 
-const teamData ={
+const teamDataTitle ={
     title:{
         de: "Team",
         fr: "Team"
@@ -26,6 +29,7 @@ export default function TeamPage(){
     const {classes} = useStyles();
     const [opened, setOpened] = useState(false);
     const ref = useRef(null);
+
     
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -59,43 +63,46 @@ export default function TeamPage(){
                         {(styles) => 
 
                           <>
-                            <FloraTitle title={teamData.title} speech={teamData.speech} />
-                            <Grid m="10vw" mt="5vh" gutter="md">
-                                <Grid.Col span={12} sm={6} p="md">
-                                    <Flex justify="flex-start" align="flex-start" wrap="nowrap" >
-                                        <Image src="team/susanne.png" maw={300}/>
-                                        <Space w="lg"/>
-                                        <Stack justify="flex-start">
-                                            <Title order={3}>Susanne Schneiter</Title>
-                                            <Text>
-                                            <>
-                                            Beckenbodenrehabilitation für Frauen und Männer
-                                            <br/>
-                                            Narbenbehandlung
-                                            <br/>
-                                            Atemphysiotherapie
-                                            <br/>
-                                            Manuelle Lymphdrainage und Bandagen
-                                            </>
-                                            </Text>
-                                        </Stack>
-                                    </Flex>
-                                </Grid.Col>
-                                <Grid.Col span={12} sm={6} p="md">
-                                    <Flex justify="flex-start" align="flex-start" wrap= "nowrap">
-                                        
-                                        <Image src="team/marlis.png" maw={300}/>
-                                        <Space w="lg"/>
-                                        <Stack >
-                                            <Title order={3}>Marlis Arn</Title>
-                                            <Text>
-                                            Sekretärin
-                                            </Text>
-                                        </Stack>
-                                    </Flex>
-                                </Grid.Col>
+                            <FloraTitle title={teamDataTitle.title} speech={teamDataTitle.speech} />
+                            <MediaQuery
+                              smallerThan="sm"
+                              styles={{display: "none"}}
+                            >
 
-                            </Grid>
+                              <Grid m="10vw" mt="5vh" gutter={5}>
+                                  {
+                                    teamData.map((dataEl, i) =>
+                                      (
+                                        <Grid.Col span={12} lg={6} p="md" key={i}>
+                                          <TeamElementBig data={dataEl} />
+                                        </Grid.Col>
+
+                                      )
+                                    )
+                                  }
+                              </Grid>
+                            </MediaQuery>
+                            <MediaQuery
+                              largerThan="sm"
+                              styles={{display: "none"}}
+                            >
+                            <Box>
+                              <Space h="lg"/>
+                              <Stack p="lg" spacing="xl">
+                                  {teamData.map((dataEl, i) => (
+                                    <Stack align="center">
+                                      <Flex miw={200} maw={300} align="center" justify="center">
+                                        <Image src={`team/${dataEl.image}.png`}/>
+                                      </Flex>
+                                      <Title order={3}>{dataEl.name}</Title>
+                                      <Text>
+                                          {dataEl.description.de}
+                                      </Text>
+                                    </Stack>
+                                  ))}
+                              </Stack>
+                              </Box>
+                            </MediaQuery>
                           </>
                         }
                     </Transition>

@@ -66,12 +66,12 @@ export default function OfferElement({title, description}: Data){
         </Modal>
 
         <Card radius="md" p="lg" pl={0}>
-                <Group noWrap>
-                    <Flex w={100} h={100} align="center" justify="center">
-                        <BarbellSVG/>
-                    </Flex>
-                    <Text size="xl" weight={700}>{locale == "fr" ? title.fr : title.de}</Text>
-                </Group>
+            <Group noWrap>
+                <Flex w={100} h={100} align="center" justify="center">
+                    <BarbellSVG/>
+                </Flex>
+                <Text size="lg" weight={700} pr="lg">{locale == "fr" ? title.fr : title.de}</Text>
+            </Group>
             <Text size="sm" color="dimmed">
                 {locale == "fr" ? description.fr : description.de}
             </Text>
