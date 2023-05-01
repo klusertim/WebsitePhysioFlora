@@ -8,6 +8,7 @@ import {RxInfoCircled} from "react-icons/rx";
 import {InfoBoxContext } from "@/contexts/infobox.context";
 import Info3 from "./info/info3";
 import Info1 from "./info/info1";
+import Info4 from "./info/info4";
 
 
 const useStyles = createStyles((theme) => ({
@@ -61,7 +62,7 @@ export default function WelcomePage(){
     return (
         <Element name="home">
           {/* <Info2/> */}
-        
+        <Info4/>
          <Group align="center" pl= "10%" pr="10vw" mt="15vh" pos="absolute" top={0} left={0} grow noWrap ref={ref} >
             
             <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={4000}>
@@ -84,10 +85,9 @@ export default function WelcomePage(){
             {(styles) => 
             <Flex align="center" justify="center" mb="lg" ml="5vw" mr={10} w="40vw" h="70vh">
 
-                {!infoBoxOpen && <Flex w="40vw" h="70vh" style={{backgroundColor:"transparent"}}>
+                <Flex w="40vw" h="70vh" style={{backgroundColor:"transparent"}}>
                     <Image src="undrawDancingPeople.svg" alt="dancing people" style={styles} />
-                </Flex>}
-                <Info2/>
+                </Flex>
             </Flex>
           }
             </Transition>

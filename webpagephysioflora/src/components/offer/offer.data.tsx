@@ -35,7 +35,7 @@ export default {
             },
             description: {
                 fr: "dfwoeifjwep",
-                de: "Diese Therapie kann helfen, eine Wirbelsäulenverkrümmung zu behandeln. Dabei geht es darum, die Krümmung zu reduzieren und Schmerzen zu lindern. Sie kann sowohl bei Kindern als auch Erwachsenen angewendet werden."
+                de: "Mit dieser Therapie wird eine Wirbelsäulenverkrümmung behandelt. Dabei geht es darum, die Krümmung zu reduzieren und Schmerzen zu lindern. Sie kann sowohl bei Kindern als auch Erwachsenen angewendet werden."
             }
         },
         {

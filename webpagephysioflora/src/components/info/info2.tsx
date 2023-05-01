@@ -1,6 +1,6 @@
 import { Center, createStyles, Overlay, Paper, Flex, Container, Affix, TypographyStylesProvider, ActionIcon, Group, Stack, ScrollArea } from "@mantine/core";
 import useSWR from 'swr'
-import InfoData from "./InfoData";
+// import InfoData from "./InfoData";
 import {InfoBoxContext } from "@/contexts/infobox.context";
 import { useContext, useEffect, useMemo, useState } from 'react';
 import FetchTest1 from "../fetchTest1";
