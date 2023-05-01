@@ -59,9 +59,7 @@ export default function TeamPage(){
         <Element name="team" marginHeight={-1000}>
             <Flex w="100vw" m={0} justify="flex-start" direction="column" p={0} pt="xl" mt={-0.257} >
                 <Box ref={ref}>
-                    <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={2000} >
-                        {(styles) => 
-
+                    
                           <>
                             <FloraTitle title={teamDataTitle.title} speech={teamDataTitle.speech} />
                             <MediaQuery
@@ -90,7 +88,7 @@ export default function TeamPage(){
                               <Space h="lg"/>
                               <Stack p="lg" spacing="xl">
                                   {teamData.map((dataEl, i) => (
-                                    <Stack align="center">
+                                    <Stack align="center" key={i}>
                                       <Flex miw={200} maw={300} align="center" justify="center">
                                         <Image src={`team/${dataEl.image}.png`}/>
                                       </Flex>
@@ -104,8 +102,6 @@ export default function TeamPage(){
                               </Box>
                             </MediaQuery>
                           </>
-                        }
-                    </Transition>
                 </Box>
                 {/* <LayeredWaves offsetY={0} rotation={180}/> */}
             </Flex>

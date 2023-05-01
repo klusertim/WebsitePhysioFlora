@@ -1,5 +1,5 @@
 import { DrawerContext } from "@/contexts/drawer.context";
-import { Burger, Drawer, Group, Stack, Text, Title, Overlay, createStyles, Affix, Box, Flex } from "@mantine/core";
+import { Burger, Drawer, Group, Stack, Text, Title, Overlay, createStyles, Affix, Box, Flex, Space, MediaQuery } from "@mantine/core";
 import { useContext, useEffect, useState } from "react";
 import {menuItems, PathsType} from './header/header.data';
 import {Link, animateScroll} from "react-scroll";
@@ -35,7 +35,7 @@ export default function DrawerMenu({...others}){
     const {scrollY:scroll, scrollYProgress} = useScroll();
     let t = useSpring(scrollYProgress, {stiffness: 100, damping: 50});
     let w = useTransform(t, [0, 1], ["0vw", "100vw"])
-
+    const linkSize = "50px";
 
 
 
@@ -55,6 +55,11 @@ export default function DrawerMenu({...others}){
                     <motion.div style={{width: w, height: "2px", position: "fixed", top: 0, left: 0, zIndex: 10}} className={classes.progressBar}/>
                
             <Logo/>
+        <MediaQuery
+            largerThan="sm"
+            styles={{display: "none"}}
+        >
+
             <Drawer zIndex={2}
                 opened={drawerOpen || false}
                 onClose={() => setDrawerOpen!(false) }
@@ -65,22 +70,25 @@ export default function DrawerMenu({...others}){
                 // transitionTimingFunction="ease"
                 // overlayBlur={1}
             >
-                <Stack justify="center" align="center" pt={50}>
+                <Space h="50px"/>
+                <Stack justify="center" align="flex-start" p="20vw" pt={50} >
 
-                    <Title order={1}>Menu</Title>
+                    {/* <Title order={1}>Menu</Title> */}
                     {menuItems?.map(({path, label}, i) => (
                         <Link to={path!} spy={true} smooth={true} duration={500} key={i} onClick={() => setDrawerOpen(false)} >
-                            <Title order={3} className={classes.link} >{locale=="fr" ? label.fr.toUpperCase() : label.de.toUpperCase()}</Title>
+                            <Title size={linkSize} className={classes.link} >{locale=="fr" ? label.fr : label.de}</Title>
                         </Link>
                     )
                     )}
                     <Box className={classes.langLink} component={NextLink} href="" locale= {locale=="de"? "fr": "de"} onClick={() => (setLastYState(scroll.get()), setDrawerOpen(false))} legacyBehavior>
-                        <Title order={3}>
-                                {locale == "de" ? "FRANÇAIS" : "DEUTSCH"}
+                        <Title size={linkSize}>
+                                {locale == "de" ? "Français" : "Deutsch"}
                         </Title>
                     </Box>
                 </Stack>
             </Drawer>
+        </MediaQuery>
+
         </Flex>
     )
 

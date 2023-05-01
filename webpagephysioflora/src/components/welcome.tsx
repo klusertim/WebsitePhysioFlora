@@ -87,7 +87,7 @@ export default function WelcomePage(){
                 {!infoBoxOpen && <Flex w="40vw" h="70vh" style={{backgroundColor:"transparent"}}>
                     <Image src="undrawDancingPeople.svg" alt="dancing people" style={styles} />
                 </Flex>}
-                <Info1/>
+                <Info2/>
             </Flex>
           }
             </Transition>

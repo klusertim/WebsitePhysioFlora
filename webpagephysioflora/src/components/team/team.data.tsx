@@ -1,6 +1,6 @@
 export default [
     {
-        name: "Susanne Schneiter",
+        name: "Susanne Schneiter-Marti",
         description:{
             de: <>
                 Beckenbodenrehabilitation für Frauen und Männer

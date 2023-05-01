@@ -44,9 +44,6 @@ export default function OfferPage(){
         <Element name="offer" marginHeight={-1000}>
             <Flex w="100vw" m={0} justify="flex-start" direction="column" p={0} pt="xl" mt={-0.257} >
                 <Box ref={ref}>
-                    <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={2000} >
-                        {(styles) => 
-
                           <>
                             <FloraTitle title={offerData.title} speech={offerData.speech} />
                             <Grid m="10vw" mt="5vh" gutter="lg" justify="center">
@@ -59,8 +56,6 @@ export default function OfferPage(){
 
                             </Grid>
                           </>
-                        }
-                    </Transition>
                 </Box>
                 {/* <LayeredWaves offsetY={0} rotation={180}/> */}
             </Flex>
