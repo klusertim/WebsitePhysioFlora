@@ -74,7 +74,7 @@ export default function WelcomePage(){
                 <Text align="left" size="lg" maw="500px">Unser Team hilft Ihnen gerne, wieder topfit zu werden.</Text>
                 <Space h="3vh"/>
                 <Flex w="100%" justify="center"  >
-                  <Link to="kontakt" spy={true} smooth={true} duration={500}>
+                  <Link to="contact" spy={true} smooth={true} duration={500}>
                     <Button className={classes.button} variant="filled"  opacity={0.9} >Kontaktieren Sie uns jetzt</Button>
                   </Link>
                 </Flex>

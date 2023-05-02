@@ -14,11 +14,17 @@ const useStyles = createStyles((theme, _params, getRef) => ({
         zIndex: 20
     },
     link:{
-        cursor: "pointer"
+        cursor: "pointer",
+        ":hover":{
+            color: theme.colors.pink
+        }
     },
     langLink:{
         textDecoration: "none",
-        color: "black"
+        color: "black",
+        ":hover":{
+            color: theme.colors.pink
+        }
     },
     progressBar:{
         backgroundColor: theme.colors.pink

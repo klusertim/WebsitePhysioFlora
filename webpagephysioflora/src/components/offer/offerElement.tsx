@@ -1,4 +1,4 @@
-import { Card, Group, createStyles, Text, Flex, Title, Button, Modal } from "@mantine/core";
+import { Card, Group, createStyles, Text, Flex, Title, Button, Modal, MediaQuery } from "@mantine/core";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -65,13 +65,18 @@ export default function OfferElement({title, description}: Data){
             </Card>
         </Modal>
 
-        <Card radius="md" p="lg" pl={0}>
+        <Flex p="lg" pl={0} direction="column" align="center">
+            <MediaQuery
+                query="(max-width: 370px)"
+                styles={{flexWrap: "wrap"}}
+            >
             <Group noWrap>
                 <Flex w={100} h={100} align="center" justify="center">
                     <BarbellSVG/>
                 </Flex>
-                <Text size="lg" weight={700} pr="lg">{locale == "fr" ? title.fr : title.de}</Text>
+                <Text size="lg" weight={700} pr="lg" style={{wordWrap: "break-word"}}>{locale == "fr" ? title.fr : title.de}</Text>
             </Group>
+            </MediaQuery>
             <Text size="sm" color="dimmed">
                 {locale == "fr" ? description.fr : description.de}
             </Text>
@@ -80,7 +85,7 @@ export default function OfferElement({title, description}: Data){
                     {locale == "fr" ? "lire plus" : "mehr erfahren"}
                 </Button>
             </Flex>
-        </Card>
+        </Flex>
     </>
   )
 }

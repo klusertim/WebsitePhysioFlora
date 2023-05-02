@@ -6,6 +6,7 @@ import { useContext, useEffect, useMemo, useState } from 'react';
 import FetchTest1 from "../fetchTest1";
 import {RxCross1, RxInfoCircled} from "react-icons/rx";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 
 
@@ -17,8 +18,9 @@ const useStyles = createStyles((theme) => ({
     iconInfo:{
         color: theme.colors.blue,
         position: "absolute",
-        top: 10,
-        right: 10
+        top: 200,
+        right: 100,
+        zIndex: 2
       },
       provider: {
         fontSize: "4em",
@@ -31,6 +33,11 @@ const useStyles = createStyles((theme) => ({
     wrapper:{
         zIndex: 1,
         backgroundColor: "#E4F1FCB3",
+    },
+    stroke: {
+        stroke: "#C8D4F8",
+        strokeWidth: "3px"
+        // padding: "4%",
     }
 }))
 
@@ -155,24 +162,53 @@ export default function Info4(){
 
     return(
         <>
-                        
-        <Flex w="100vw" h="100vh" mt="5vh" pos="absolute" className={classes.wrapper}>
-
             {infoBoxOpen &&
-            <>
-                <svg width="1374" height="811" viewBox="0 0 1374 811" fill="none" xmlns="http://www.w3.org/2000/svg" z={5}>
+            <Flex w="100vw" h="100vh" pos="absolute" className={classes.wrapper} justify="center" align="center">
+            
+                <motion.svg width="1374" height="811" viewBox="0 0 1374 811" fill="none" xmlns="http://www.w3.org/2000/svg" z={5}>
                     <g id="InfoBlob">
-                        <path id="e3" d="M1373.61 312.978C1380.49 418.311 1298.32 884.992 1035.66 800.927C475.302 621.576 5.70759e-06 679.826 0 459.875C-1.27948e-05 -33.1967 548.868 142.168 698.872 57.9036C928.765 -87.8537 1356.94 57.9032 1373.61 312.978Z" fill="#C8D4F8" fillOpacity="0.8">
+                        <motion.path 
+                        initial={{ pathLength: 0}}
+                        animate={{ pathLength: 1}}
+                        transition={{
+                          duration: 3,
+                          ease: "easeInOut",
+                          
+                          repeat: Infinity,
+                          repeatType: "reverse",
+                          repeatDelay: 1
+                        }}
+                        strokeDasharray="0 10"
+                        stroke ="#C8D4F8"
+                        strokeWidth={3}
+                        id="e3" d="M1373.61 312.978C1380.49 418.311 1298.32 884.992 1035.66 800.927C475.302 621.576 5.70759e-06 679.826 0 459.875C-1.27948e-05 -33.1967 548.868 142.168 698.872 57.9036C928.765 -87.8537 1356.94 57.9032 1373.61 312.978Z" fillOpacity="0.8">
                         
-                        </path>
-                        <path id="e2" d="M1287 253.168C1287 424.723 1177.3 691 861.23 691C545.163 691 170 572.938 170 401.383C170 229.828 357.316 154.928 434.885 136.754C709.539 72.4079 1287 81.6134 1287 253.168Z" fill="#C9B7E9" fillOpacity="0.85"/>
+                        </motion.path>
+                        <motion.path 
+                        
+
+                        id="e2" d="M1287 253.168C1287 424.723 1177.3 691 861.23 691C545.163 691 170 572.938 170 401.383C170 229.828 357.316 154.928 434.885 136.754C709.539 72.4079 1287 81.6134 1287 253.168Z" fill="#C9B7E9" fillOpacity="0.85"/>
                         <g>
-                        <path id="e1" d="M1152.86 347.368C1230.67 496.616 884.717 639 619.906 639C355.095 639 306 453.375 306 314.331C306 175.288 504.922 80.2979 687.172 175.351C948.185 311.484 1063.17 175.351 1152.86 347.368Z" fill="#D494C6" fillOpacity="0.9"/>
-                            <foreignObject x="0" y="0" width="600" height="600">
-                                <ScrollArea  w="600" h="100%" offsetScrollbars>
+                            <motion.path 
+                            initial={{ pathLength: 0, fill: "transparent"}}
+                            animate={{ pathLength: 1, fill: "none" }}
+                            transition={{
+                              duration: 3,
+                              ease: "easeInOut",
+                              delay: 3
+                            }}
+                            strokeDasharray="0 10"
+                            stroke="#D494C6"
+                            strokeWidth={3}
+                            id="e1" d="M1152.86 347.368C1230.67 496.616 884.717 639 619.906 639C355.095 639 306 453.375 306 314.331C306 175.288 504.922 80.2979 687.172 175.351C948.185 311.484 1063.17 175.351 1152.86 347.368Z" fillOpacity="0.9"/>
+                            <foreignObject x="75%" y="20%" width="20%" height="20%">
+                                <RxCross1 size={40} onClick={() => setInfoBoxOpen(false)}/>
+                            </foreignObject>
+                            <foreignObject x="28%" y="25%" width="45%" height="45%">
+                                <ScrollArea  w="100%" h ="100%" type="never" offsetScrollbars >
                                         <TypographyStylesProvider>
                                             {localData!.map((post: typeof germanData, i:number) => (
-                                            <div className={classes.provider} dangerouslySetInnerHTML={{ __html: post.content.rendered }} key={i}/>
+                                            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} key={i}/>
                                             )
                                         )}
                                     </TypographyStylesProvider>
@@ -181,23 +217,14 @@ export default function Info4(){
 
                         </g>
                     </g>
-                </svg>
-                {/* <ScrollArea  w="600" h="100%" offsetScrollbars>
-                <TypographyStylesProvider>
-                    {localData!.map((post: typeof germanData, i:number) => (
-                    <div className={classes.provider} dangerouslySetInnerHTML={{ __html: post.content.rendered }} key={i}/>
-                    )
-                )}
-                    </TypographyStylesProvider>
-                </ScrollArea> */}
-            </>
+                </motion.svg>
+            </Flex>
                 
             }
             
-            <ActionIcon variant="transparent" color="black" size="xl" className={classes.iconInfo} onClick={() => setInfoBoxOpen(true)}>
+            <ActionIcon variant="transparent" color="black" size="xl" className={classes.iconInfo} onClick={() => (localData && localData.length > 0)? setInfoBoxOpen(true): null}>
                     <RxInfoCircled size={100}/>
             </ActionIcon>
-        </Flex>
         </>
     );
 }

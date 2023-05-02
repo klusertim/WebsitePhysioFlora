@@ -24,7 +24,7 @@ export default function FloraTitle({title, speech}: TextProps){
     const {classes} = useStyles();
 
     return(
-        <Stack align="flex-start" ml="10vw" pl={0} pb="md">
+        <Stack align="flex-start" ml="10vw" pl={0} pb="md" mr="10px">
                 <Text fz="lg" className={classes.title}>{title[locale! as keyof typeof title].toUpperCase()}</Text>
                 <Title mt={-10}>{speech[locale! as keyof typeof speech]}</Title>
         </Stack>  

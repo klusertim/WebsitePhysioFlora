@@ -10,7 +10,7 @@ import NextLink from 'next/link'; // because of default export we can import wit
 import { useWindowScroll } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 import {animateScroll} from "react-scroll"
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from "framer-motion";
 
 const useStyles = createStyles((theme, _params, getRef) => ({
     container: {
@@ -81,6 +81,11 @@ export default function Header({...props}){
     let t = useSpring(scrollYProgress, {stiffness: 100, damping: 50});
     let w = useTransform(t, [0, 1], ["0vw", "100vw"])
 
+    // subscribe to motion value
+    const [colorWhite, setColorWhite] = useState(false);
+    useMotionValueEvent(scroll, "change", (latest) => {setColorWhite(latest > 100)});
+
+
     useEffect(() => {
         // console.log("lastYState ", lastYState);
         animateScroll.scrollTo(lastYState, {delay: 0, duration: 0})
@@ -107,7 +112,8 @@ export default function Header({...props}){
                     >
                     <Affix position={{top: 0, left:0}} zIndex={4}>
                         <Stack spacing={0}>
-                        <Group pl="5%" position="apart" w="100vw" pt={20} pb={10} noWrap grow bg="white" opacity={0.9} h={120}>
+                        
+                        <Group pl="5%" position="apart" w="100vw" pt={20} pb={10} noWrap grow bg={colorWhite ? "white" : "none"} opacity={0.9} h={120}>
                             <Link to={"home"} spy={true} smooth={true} duration={500}>
                                 <Logo />
                             </Link>

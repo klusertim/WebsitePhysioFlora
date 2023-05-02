@@ -5,7 +5,7 @@ import contactData from './contact.data'
 import Map from "../map/map";
 import FloraTitle from "../floraTitle";
 import { MotionValue, motion, useScroll, useTransform} from "framer-motion";
-import { MutableRefObject, useRef } from "react";
+import { MutableRefObject, useEffect, useRef } from "react";
 import { AppProps } from "next/app";
 
 
@@ -70,6 +70,8 @@ export function Bubble({left, top, y}: Props) {
     )
 }
 
+
+
 export default function ContactPage(){
 
     const {classes} = useStyles();
@@ -82,6 +84,19 @@ export default function ContactPage(){
     )
     console.log(scrollYProgress)
     let y = useTransform(scrollYProgress, [0, 1], ["15%", "-5%"])
+
+    const dateProvider = new Date();
+
+    function getDay(){
+        return `${dateProvider.getDate()}.${dateProvider.getMonth()}.${dateProvider.getFullYear()}`
+    }
+    function getTime(){
+        return `${dateProvider.getHours()}:${dateProvider.getMinutes()}`
+    }
+
+    // useEffect(()=>(
+
+    // ), [])
 
     return (
         <>
@@ -97,17 +112,31 @@ export default function ContactPage(){
                         <Map width= "50vw" style={{position: "relative"}}/>
                     </Flex>
                     <Space miw={70}/>
-                    <Stack justify= "flex-start">
+                    <Stack justify= "flex-start" pr="10vw">
                         <Text ref={ref} className={classes.address}>{contactData.address[locale! as keyof typeof contactData.address]}</Text>
                         <Group noWrap position="left">
                             <Image src="mail.svg" alt="mailIcon" height={20} width={20} fit="contain" />
                             <Text>{contactData.mail}</Text>
                         </Group>
+                        <Text size="xl">Telefonische Erreichbarkeit:</Text>
                         <Group noWrap position="left">
                             <Image src="phone.svg" alt="phone" height={20} width={20} fit="contain"/>
                             <Text>{contactData.phone}</Text>
                         </Group>
-                        <Stack>
+                        <Text mt="-5px">Montag - Freitag <br/> 08:00 - 12:00</Text>
+                        <Text ></Text>
+                        <Space h="1vh"/>
+                        <Text>Sie erreichen uns bequem mit dem Bus bis zur <b>Haltestelle Nidaugasse</b>: &nbsp;
+                        <Text component="a" href={`https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?nach=Nidaugasse,+Biel&datum=${getDay()}&time=${getTime()}`} td="underline">Link zum SBB Fahrplan</Text>
+                        </Text>
+                        <Space h="1vh"/>
+                        <Text>
+                        Die Praxis ist komplett Rollstuhlgängig.<br/>
+                        Bei Ihrem ersten Besuch begleiten wir Sie jedoch gerne!
+                        </Text>
+                        {/* <Text component="a" href={`https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?nach=Nidaugasse,+Biel&datum=${getDay()}&time=${getTime()}`}>Link zum SBB Fahrplan:</Text> */}
+                        
+                        {/* <Stack>
                             <Text  className={classes.openHeader} weight="bolder">{contactData.open[locale! as keyof typeof contactData.open] + ":"}</Text>
                             {contactData.weekdays[locale! as keyof typeof contactData.weekdays].map((day, i) => 
                                 <Text className={classes.weekdays} key={i}>{day + ": " + "10-17"}</Text>
@@ -116,7 +145,7 @@ export default function ContactPage(){
                             <motion.div style={{y}}>
                                 Hello
                             </motion.div>
-                        </Stack>
+                        </Stack> */}
                     </Stack>
                 </Flex>
                 
