@@ -1,4 +1,4 @@
-export default {
+const contactData = {
     title: {
         fr: "Contact",
         de: "Kontakt"
@@ -23,3 +23,5 @@ export default {
 
     }
 }
+
+export default contactData;

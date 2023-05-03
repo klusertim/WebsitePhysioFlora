@@ -10,7 +10,7 @@ const nextConfig = {
     locales: ['de', 'fr'],
     defaultLocale: 'de',
   },
-  output: 'export'
+  // output: 'export'
   
 }
 

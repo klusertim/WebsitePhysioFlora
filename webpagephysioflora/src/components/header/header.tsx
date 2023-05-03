@@ -89,7 +89,7 @@ export default function Header({...props}){
     useEffect(() => {
         // console.log("lastYState ", lastYState);
         animateScroll.scrollTo(lastYState, {delay: 0, duration: 0})
-    }, [locale]);
+    }, [locale, lastYState]);
 
 
     return(

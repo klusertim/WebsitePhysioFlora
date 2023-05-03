@@ -91,6 +91,7 @@ export default function InfoData(){
 }
 
 
+
 // export default function InfoData() {
 //   const {data:categoryData, error:categroyError} = useSWR("http://9d9gom4m.lx28.hoststar.website/wp-json/wp/v2/categories", fetcher)
 

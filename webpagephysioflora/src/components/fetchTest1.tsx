@@ -44,7 +44,7 @@ export default function FetchTest1(){
             // console.log(data[0].content.rendered)
           }
         else {setInfoBoxOpen(false)}
-    }, [data])
+    }, [data, setInfoBoxOpen])
 
     if(!data) return <div>Loading...</div>
 
