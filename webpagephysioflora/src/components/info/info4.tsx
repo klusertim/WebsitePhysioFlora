@@ -64,8 +64,8 @@ export default function Info4(){
 
     
 
-    const {data: categoryData, error: categoryError} = useSWR("http://9d9gom4m.lx28.hoststar.website/wp-json/wp/v2/categories", fetcher)
-    const {data, error} = useSWR(categoryMounted ? `http://9d9gom4m.lx28.hoststar.website/wp-json/wp/v2/posts?categories=${categoryId.publish}&_embed`:null, fetcher)
+    const {data: categoryData, error: categoryError} = useSWR("https://9d9gom4m.lx28.hoststar.website/wp-json/wp/v2/categories", fetcher)
+    const {data, error} = useSWR(categoryMounted ? `https://9d9gom4m.lx28.hoststar.website/wp-json/wp/v2/posts?categories=${categoryId.publish}&_embed`:null, fetcher)
     // const {data: germanData, error: germanError} = useSWR(categoryMounted ? `http://9d9gom4m.lx28.hoststar.website/wp-json/wp/v2/posts?categories=${categoryId.german}&categories=${categoryId.publish}&_embed`:null, fetcher)
     // const {data: frenchData, error: frenchError} = useSWR(categoryMounted ? `http://9d9gom4m.lx28.hoststar.website/wp-json/wp/v2/posts?categories=${categoryId.french}&categories=${categoryId.publish}&_embed`:null, fetcher)
     // let [localData, setLocalData]  = useState<typeof germanData>(null)
