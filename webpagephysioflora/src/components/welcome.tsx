@@ -63,7 +63,7 @@ export default function WelcomePage(){
         <Element name="home">
           {/* <Info2/> */}
         <Info4/>
-         <Group align="center" pl= "10%" pr="10vw" mt="15vh" pos="absolute" top={0} left={0} grow noWrap ref={ref} >
+         <Group align="center" pl= "10%" mt="15vh" pos="absolute" top={0} left={0} grow noWrap ref={ref} >
             
             <Transition transition="fade" mounted={opened} onEnter={() => setOpened(true)} duration={4000}>
                 {(styles) => 
@@ -74,7 +74,7 @@ export default function WelcomePage(){
                 <Text align="left" size="lg" maw="500px">Unser Team hilft Ihnen gerne, wieder topfit zu werden.</Text>
                 <Space h="3vh"/>
                 <Flex w="100%" justify="center"  >
-                  <Link to="contact" spy={true} smooth={true} duration={500}>
+                  <Link to="contact" spy={true} smooth={true} duration={500} offset={-80}>
                     <Button className={classes.button} variant="filled"  opacity={0.9} >Kontaktieren Sie uns jetzt</Button>
                   </Link>
                 </Flex>

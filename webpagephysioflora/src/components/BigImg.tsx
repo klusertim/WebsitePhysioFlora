@@ -1,4 +1,4 @@
-import { createStyles, Image } from "@mantine/core"
+import { createStyles, Image, MediaQuery } from "@mantine/core"
 
 const useStyles = createStyles((theme) => ({
     container: {
@@ -19,6 +19,19 @@ export default function BigImg(){
 
     return(
         // <Image className={classes.img} src="PhysioWallpaper.jpg" alt="wallpaper" width="100%" height={500}/>
-        <div className={classes.container}/>
+        <>
+        <MediaQuery
+            smallerThan="sm"
+            styles={{display: "none"}}
+        >
+            <div className={classes.container}/>
+        </MediaQuery>
+        <MediaQuery
+            largerThan="sm"
+            styles={{display: "none"}}
+        >
+            <Image src="PhysioWallpaper.jpg"/>
+        </MediaQuery>
+        </>
     )
 }

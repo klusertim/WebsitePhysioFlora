@@ -6,9 +6,10 @@ import Script from "next/script";
 import styleArr from "./mapStyles.data";
 import { BoxProps } from "@mantine/core";
 
-interface Props extends BoxProps, Pick<React.CSSProperties, 'width'> {}
+interface Props extends BoxProps, Pick<React.CSSProperties, 'width'>, Pick<React.CSSProperties, "height"> {}
 
-export default function Map({width, ...props}: Props){
+
+export default function Map({width, height, ...props}: Props){
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
@@ -62,7 +63,7 @@ export default function Map({width, ...props}: Props){
             center={mapCenter}
             // mapTypeId={google.maps.MapTypeId.ROADMAP}
             mapContainerClassName = "map-container"
-            mapContainerStyle={{ width: width, height: '500px' }}
+            mapContainerStyle={{ width: width, height: height }}
             onLoad={() => console.log('Map Component Loaded...')}
             
         >

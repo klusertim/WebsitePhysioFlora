@@ -1,4 +1,4 @@
-import { createStyles, Flex, Title, Stack, Text, Group, AspectRatio, Image, Center, Space } from "@mantine/core";
+import { createStyles, Flex, Title, Stack, Text, Group, AspectRatio, Image, Center, Space, MediaQuery, useMantineTheme } from "@mantine/core";
 import { useRouter } from "next/router";
 import {Element} from 'react-scroll';
 import contactData from './contact.data'
@@ -7,6 +7,8 @@ import FloraTitle from "../floraTitle";
 import { MotionValue, motion, useScroll, useTransform} from "framer-motion";
 import { MutableRefObject, useEffect, useRef } from "react";
 import { AppProps } from "next/app";
+import { useMediaQuery } from "@mantine/hooks";
+import { useTheme } from "@emotion/react";
 
 
 const useStyles = createStyles((theme) => ({
@@ -15,7 +17,7 @@ const useStyles = createStyles((theme) => ({
         fontWeight: "bold"
     },
     container:{
-        backgroundColor: "#abc9b3"
+        zIndex: 2
     },
     address:{
         fontWeight: "bold",
@@ -84,8 +86,9 @@ export default function ContactPage(){
     )
     console.log(scrollYProgress)
     let y = useTransform(scrollYProgress, [0, 1], ["15%", "-5%"])
-
+    const theme = useMantineTheme();
     const dateProvider = new Date();
+    const isSmallDevice = useMediaQuery(theme.fn.smallerThan("sm").replace("@media", ""));
 
     function getDay(){
         return `${dateProvider.getDate()}.${dateProvider.getMonth()}.${dateProvider.getFullYear()}`
@@ -98,56 +101,69 @@ export default function ContactPage(){
 
     // ), [])
 
+    // function Group1(){
+    //     return(
+
+    //     )
+    // }
+
     return (
         <>
             {/* <Bubble left={-500} top={1000}/> */}
 
         <Element name="contact">
-            <Flex  h="100vh" w="100vw" m={0} p={0} pt="xl" justify="flex-start" mt={-0.257} direction="column" pos="relative">
+            <Flex  w="100vw" m={0} p={0} pt="xl" justify="flex-start" mt={-0.257} direction="column" pos="relative" className={classes.container}>
 
                 <Bubble  left={-500} top={-100} y={y} />
                 <FloraTitle title={contactData.title} speech={contactData.speech}/>
-                <Flex justify="flex-start" align="flex-start" ml="10vw">
-                    <Flex w="50vw" h="70vh">
-                        <Map width= "50vw" style={{position: "relative"}}/>
+                {/* <MediaQuery
+                    smallerThan="sm"
+                    styles={{display: "none"}}
+                > */}
+                <Flex justify="center" align="center" ml={isSmallDevice?"0":"10vw"} direction={isSmallDevice ? "column-reverse":"row"}>
+                    <Flex w={isSmallDevice?"80vw":"50vw"} h="70vh">
+                        <Map width= {isSmallDevice?"80vw":"50vw"} height= "70vh" style={{position: "relative"}}/>
                     </Flex>
-                    <Space miw={70}/>
-                    <Stack justify= "flex-start" pr="10vw">
-                        <Text ref={ref} className={classes.address}>{contactData.address[locale! as keyof typeof contactData.address]}</Text>
+                    <Space miw={70} mih={70}/>
+                    <Stack justify= "flex-start" align= "flex-start" pr="5vw" pl={isSmallDevice?"15vw":"0"}>
                         <Group noWrap position="left">
-                            <Image src="mail.svg" alt="mailIcon" height={20} width={20} fit="contain" />
-                            <Text>{contactData.mail}</Text>
+                            <Image src="/contact/EMail.svg" alt="mailIcon" height={25} width={25} fit="contain" />
+                            <Stack>
+                            <Text ref={ref} className={classes.address}>{contactData.address[locale! as keyof typeof contactData.address]}</Text>
+                            <Text mt={-10}>{contactData.mail}</Text>
+                            </Stack>
                         </Group>
-                        <Text size="xl">Telefonische Erreichbarkeit:</Text>
+                        <Space h="1vh"/>
                         <Group noWrap position="left">
-                            <Image src="phone.svg" alt="phone" height={20} width={20} fit="contain"/>
-                            <Text>{contactData.phone}</Text>
+                            <Image src="/contact/Phone.svg" alt="phone" height={20} width={20} fit="contain"/>
+                            <Stack>
+                                <Text size="lg">Telefonische Erreichbarkeit:</Text>
+                                <Text mt={-10}>{contactData.phone}</Text>
+                                <Text mt={-10}>Montag - Freitag <br/> 08:00 - 12:00</Text>
+                            </Stack>
                         </Group>
-                        <Text mt="-5px">Montag - Freitag <br/> 08:00 - 12:00</Text>
-                        <Text ></Text>
                         <Space h="1vh"/>
-                        <Text>Sie erreichen uns bequem mit dem Bus bis zur <b>Haltestelle Nidaugasse</b>: &nbsp;
-                        <Text component="a" href={`https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?nach=Nidaugasse,+Biel&datum=${getDay()}&time=${getTime()}`} td="underline">Link zum SBB Fahrplan</Text>
-                        </Text>
+                        <Group noWrap position="left">
+                            <Image src="contact/Bus.svg" alt="bus" height={25} width={25}/>
+                            <Stack>
+                            <Text>Sie erreichen uns bequem mit dem Bus bis zur <b>Haltestelle Nidaugasse</b>: &nbsp;
+                            </Text>
+                                <Text mt={-10} component="a" href={`https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?nach=Nidaugasse,+Biel&datum=${getDay()}&time=${getTime()}`} td="underline">Link zum SBB Fahrplan</Text>
+                            </Stack>
+                        </Group>
                         <Space h="1vh"/>
-                        <Text>
-                        Die Praxis ist komplett Rollstuhlgängig.<br/>
-                        Bei Ihrem ersten Besuch begleiten wir Sie jedoch gerne!
-                        </Text>
-                        {/* <Text component="a" href={`https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?nach=Nidaugasse,+Biel&datum=${getDay()}&time=${getTime()}`}>Link zum SBB Fahrplan:</Text> */}
+                        <Group noWrap position="left">
+                            <Image src="contact/WheelChair.svg" alt="wheelchair" height={25} width={25}/>
+                            <Text>
+                                Die Praxis ist komplett Rollstuhlgängig.<br/>
+                                Bei Ihrem ersten Besuch begleiten wir Sie jedoch gerne!
+                            </Text>
+                        </Group>
                         
-                        {/* <Stack>
-                            <Text  className={classes.openHeader} weight="bolder">{contactData.open[locale! as keyof typeof contactData.open] + ":"}</Text>
-                            {contactData.weekdays[locale! as keyof typeof contactData.weekdays].map((day, i) => 
-                                <Text className={classes.weekdays} key={i}>{day + ": " + "10-17"}</Text>
-                                )
-                            }
-                            <motion.div style={{y}}>
-                                Hello
-                            </motion.div>
-                        </Stack> */}
                     </Stack>
                 </Flex>
+                {/* </MediaQuery> */}
+            
                 
             </Flex>
         </Element>

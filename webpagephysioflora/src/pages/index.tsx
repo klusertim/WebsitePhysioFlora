@@ -8,17 +8,21 @@ import { createStyles, Flex } from "@mantine/core";
 import LocationMap from "src/components/locationMap"
 import { LoadScript } from "@react-google-maps/api";
 import BigImg from "@/components/BigImg";
+import Footer from "@/components/footer";
+import Underlay from "@/components/underlay";
 
-// const useStyles = createStyles(({theme}) => ({
-//     container: {
-        
-//     }
-// }))
+const useStyles = createStyles(() => ({
+    container: {
+        // zIndex: 0,
+        backgroundColor: "white"
+    }
+}))
 
 export default function Index(){
-
+    const {classes} = useStyles();
     return(
         <>
+        <Flex w="100vw" direction="column" className={classes.container} >
         <Header/>
         <WelcomePage/>
         <BigImg/>
@@ -26,7 +30,9 @@ export default function Index(){
         <TeamPage/>
         <ContactPage/>
         <LocationMap/>
-        <div style={{height: 2000, width: "100vw", backgroundColor: "green"}}></div>
+        <Footer/>
+        </Flex>
+        <Underlay/>
         </>
     )
 }
