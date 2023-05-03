@@ -11,9 +11,11 @@ coverage
 # next.js - leading slash matches the root -> /out only matches directory directly after root
 .next/
 next/
+/webpagephysioflora/.next
 out/
 /out
 /cache
+
 
 # production
 build/
