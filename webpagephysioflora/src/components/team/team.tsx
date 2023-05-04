@@ -5,6 +5,7 @@ import FloraTitle from "../floraTitle";
 import teamData from "./team.data";
 import TeamElementBig from "./teamElementBig";
 import { useMediaQuery } from "@mantine/hooks";
+import { motion } from "framer-motion";
 
 
 const teamDataTitle ={
@@ -54,6 +55,7 @@ export default function TeamPage(){
         };
       }, [ref]);
 
+    
 
     return (
         <Element name="team" marginHeight={-1000}>
@@ -62,10 +64,10 @@ export default function TeamPage(){
                     
                           <>
                             <FloraTitle title={teamDataTitle.title} speech={teamDataTitle.speech} />
-                            <MediaQuery
+                            {/* <MediaQuery
                               smallerThan="sm"
                               styles={{display: "none"}}
-                            >
+                            > */}
 
                               <Grid m="10vw" mt="5vh" gutter={5}>
                                   {
@@ -75,12 +77,16 @@ export default function TeamPage(){
                                           <TeamElementBig data={dataEl} />
                                         </Grid.Col>
 
+                                        
                                       )
                                     )
                                   }
+                                  {/* <Grid.Col>
+                                    <SusanneSVG/>
+                                  </Grid.Col> */}
                               </Grid>
-                            </MediaQuery>
-                            <MediaQuery
+                            {/* </MediaQuery> */}
+                            {/* <MediaQuery
                               largerThan="sm"
                               styles={{display: "none"}}
                             >
@@ -100,7 +106,7 @@ export default function TeamPage(){
                                   ))}
                               </Stack>
                               </Box>
-                            </MediaQuery>
+                            </MediaQuery> */}
                           </>
                 </Box>
                 {/* <LayeredWaves offsetY={0} rotation={180}/> */}
