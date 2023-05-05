@@ -31,7 +31,7 @@ const useStyles = createStyles((theme) => ({
         
     },
     wrapper:{
-        zIndex: 1,
+        zIndex: 2,
         backgroundColor: "#E4F1FCB3",
     },
     stroke: {
