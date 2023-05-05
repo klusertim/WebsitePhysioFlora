@@ -25,9 +25,10 @@ export default function Index(){
         <Flex w="100vw" direction="column" className={classes.container} >
         <Header/>
         <WelcomePage/>
-        <BigImg/>
+        <BigImg url="PhysioWallpaper.jpg"/>
         <OfferPage/>
         <TeamPage/>
+        <BigImg url="PhyioWallpaper.jpg"/>
         <ContactPage/>
         <LocationMap/>
         <Footer/>

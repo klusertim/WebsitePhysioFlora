@@ -8,13 +8,14 @@ const useStyles = createStyles((theme) => ({
         backgroundSize: "cover",
         height: "500px",
         backgroundAttachment: "fixed",
-        backgroundRepeat: "no-repeat"
-        
+        backgroundRepeat: "no-repeat",
+        position: "relative",
+        zIndex: 1
     }
     
   }));
 
-export default function BigImg(){
+export default function BigImg({url}: {url: string}){
     const {classes} = useStyles();
 
     return(
@@ -30,7 +31,7 @@ export default function BigImg(){
             largerThan="sm"
             styles={{display: "none"}}
         >
-            <Image src="PhysioWallpaper.jpg"/>
+            <Image src={url}/>
         </MediaQuery>
         </>
     )

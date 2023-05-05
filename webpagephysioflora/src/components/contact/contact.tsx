@@ -55,7 +55,7 @@ export function Bubble({left, top, y}: Props) {
     
     }
     return(
-        <motion.div style={{left: left, top: top, zIndex: -5, position:"absolute", y}} >
+        <motion.div style={{left: left, top: top, zIndex: -2, position:"absolute", y}} >
             <motion.svg  
             width="1000" height="1100" viewBox="0 0 1217 1296" xmlns="http://www.w3.org/2000/svg"
             variants = {svgVariants}
@@ -84,7 +84,6 @@ export default function ContactPage(){
             target: ref
         }
     )
-    console.log(scrollYProgress)
     let y = useTransform(scrollYProgress, [0, 1], ["15%", "-5%"])
     const theme = useMantineTheme();
     const dateProvider = new Date();

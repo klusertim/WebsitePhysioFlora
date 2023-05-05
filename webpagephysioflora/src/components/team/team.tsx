@@ -73,9 +73,7 @@ export default function TeamPage(){
                                   {
                                     teamData.map((dataEl, i) =>
                                       (
-                                        <Grid.Col span={12} lg={6} p="md" key={i}>
-                                          <TeamElementBig data={dataEl} />
-                                        </Grid.Col>
+                                          <TeamElementBig data={dataEl} key={i}/>
 
                                         
                                       )
