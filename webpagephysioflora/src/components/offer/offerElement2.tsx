@@ -1,4 +1,4 @@
-import { Card, Group, createStyles, Text, Flex, Title, Button, Modal, MediaQuery, Space, Image } from "@mantine/core";
+import { Card, Group, createStyles, Text, Flex, Title, Button, Modal, MediaQuery } from "@mantine/core";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -10,8 +10,7 @@ interface Data{
     description: {
         fr: string
         de: string
-    },
-    icon: string
+    }
 }
 
 const useStyles = createStyles((theme) => ({
@@ -20,7 +19,7 @@ const useStyles = createStyles((theme) => ({
 
 
 
-export default function OfferElement({title, description, icon}: Data){
+export default function OfferElement({title, description}: Data){
 
     const {classes} = useStyles();
     const {locale} : {locale?: string} = useRouter();
@@ -53,36 +52,35 @@ export default function OfferElement({title, description, icon}: Data){
   return(
     <>
         <Modal opened={modalOpen} onClose={() => setModalOpen(false)}>
-            <Flex  direction="column" justify="center" align="center" m="lg">
-                <Flex w={100} h={100} align="center" justify="center">
-                    <Image src={`/offer/icons/${icon}-Icon.png`}/>
-                </Flex>
-                <Space h="lg"/>
-                <Text size="xl" weight={700}>{locale == "fr" ? title.fr : title.de}</Text>
-                <Space h="lg"/>
+            <Card radius="md" p="lg" pl={0}>
+                    <Group noWrap>
+                        <Flex w={100} h={100} align="center" justify="center">
+                            <BarbellSVG/>
+                        </Flex>
+                        <Text size="xl" weight={700}>{locale == "fr" ? title.fr : title.de}</Text>
+                    </Group>
                 <Text size="sm" color="dimmed">
                     {locale == "fr" ? description.fr : description.de}
                 </Text>
-            </Flex>
+            </Card>
         </Modal>
 
-        <Flex p="lg" pl={0} direction="column" align="flex-start">
-            {/* <MediaQuery
+        <Flex p="lg" pl={0} direction="column" align="center">
+            <MediaQuery
                 query="(max-width: 370px)"
                 styles={{flexWrap: "wrap"}}
-            > */}
-            <Group w={500} noWrap>
-                <Flex h={80} maw={70} align="center" justify="center">
-                <Image src={`/offer/icons/${icon}-Icon.png`}/>
-
+            >
+            <Group noWrap>
+                <Flex w={100} h={100} align="center" justify="center">
+                    <BarbellSVG/>
                 </Flex>
                 <Text size="lg" weight={700} pr="lg" style={{wordWrap: "break-word"}}>{locale == "fr" ? title.fr : title.de}</Text>
             </Group>
-            {/* </MediaQuery> */}
-            {/* <Text size="sm" color="dimmed">
+            </MediaQuery>
+            <Text size="sm" color="dimmed">
                 {locale == "fr" ? description.fr : description.de}
-            </Text> */}
-            <Flex w="100%" justify="flex-start" pt={5} pl={120}>
+            </Text>
+            <Flex w="100%" justify="center" pt={5}>
                 <Button onClick={() => setModalOpen(true)} compact size="xs" variant="outline" radius="lg" color="gray"> 
                     {locale == "fr" ? "lire plus" : "mehr erfahren"}
                 </Button>

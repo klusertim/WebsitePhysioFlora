@@ -86,29 +86,12 @@ export default function ContactPage(){
     )
     let y = useTransform(scrollYProgress, [0, 1], ["15%", "-5%"])
     const theme = useMantineTheme();
-    const dateProvider = new Date();
     const isSmallDevice = useMediaQuery(theme.fn.smallerThan("sm").replace("@media", ""));
 
-    function getDay(){
-        return `${dateProvider.getDate()}.${dateProvider.getMonth()}.${dateProvider.getFullYear()}`
-    }
-    function getTime(){
-        return `${dateProvider.getHours()}:${dateProvider.getMinutes()}`
-    }
 
-    // useEffect(()=>(
-
-    // ), [])
-
-    // function Group1(){
-    //     return(
-
-    //     )
-    // }
 
     return (
         <>
-            {/* <Bubble left={-500} top={1000}/> */}
 
         <Element name="contact">
             <Flex  w="100vw" m={0} p={0} pt="xl" justify="flex-start" mt={-0.257} direction="column" pos="relative" className={classes.container}>
@@ -147,7 +130,7 @@ export default function ContactPage(){
                             <Stack>
                             <Text>Sie erreichen uns bequem mit dem Bus bis zur <b>Haltestelle Nidaugasse</b>: &nbsp;
                             </Text>
-                                <Text mt={-10} component="a" href={`https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?nach=Nidaugasse,+Biel&datum=${getDay()}&time=${getTime()}`} td="underline">Link zum SBB Fahrplan</Text>
+                                <Text mt={-10} component="a" href={`https://www.sbb.ch/de/kaufen/pages/fahrplan/fahrplan.xhtml?nach=Nidaugasse,+Biel`} td="underline">Link zum SBB Fahrplan</Text>
                             </Stack>
                         </Group>
                         <Space h="1vh"/>
