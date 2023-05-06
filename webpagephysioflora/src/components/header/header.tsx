@@ -62,7 +62,7 @@ export default function Header({...props}){
                 </MediaQuery>
                 
 
-                    <Affix position={{top: 0, left:0}} style={{display: isSmallDevice ? "none":"flex"}}>
+                    <Affix position={{top: 0, left:0}} style={{display: isSmallDevice ? "none":"flex"}} zIndex={3}>
                         <Flex>
                             
                             <motion.svg style={{position: "absolute", left: -2, width: "101%", overflow: "visible"}} viewBox={`0 ${-ratio} 1442 203`}  fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -31,7 +31,7 @@ const useStyles = createStyles((theme) => ({
         
     },
     wrapper:{
-        zIndex: 2,
+        zIndex: 4,
         backgroundColor: "#E4F1FCB3",
     },
     stroke: {
@@ -163,7 +163,8 @@ export default function Info4(){
     return(
         <>
             {infoBoxOpen &&
-            <Flex w="100vw" h="100vh" pos="absolute" className={classes.wrapper} justify="center" align="center">
+            <Affix position={{top: 0, left: 0}}>
+            <Flex w="100vw" h="100vh" pos="absolute" className={classes.wrapper} justify="center" align="center" p="5%" pt={140}>
             
                 <motion.svg width="1374" height="811" viewBox="0 0 1374 811" fill="none" xmlns="http://www.w3.org/2000/svg" z={5}>
                     <g id="InfoBlob">
@@ -174,9 +175,9 @@ export default function Info4(){
                           duration: 3,
                           ease: "easeInOut",
                           
-                          repeat: Infinity,
-                          repeatType: "reverse",
-                          repeatDelay: 1
+                        //   repeat: Infinity,
+                        //   repeatType: "reverse",
+                        //   repeatDelay: 1
                         }}
                         strokeDasharray="0 10"
                         stroke ="#C8D4F8"
@@ -186,8 +187,8 @@ export default function Info4(){
                         </motion.path>
                         <motion.path 
                         
-
-                        id="e2" d="M1287 253.168C1287 424.723 1177.3 691 861.23 691C545.163 691 170 572.938 170 401.383C170 229.828 357.316 154.928 434.885 136.754C709.539 72.4079 1287 81.6134 1287 253.168Z" fill="#C9B7E9" fillOpacity="0.85"/>
+                        fill="#C9B7E9" fillOpacity="0.95"
+                        id="e2" d="M1287 253.168C1287 424.723 1177.3 691 861.23 691C545.163 691 170 572.938 170 401.383C170 229.828 357.316 154.928 434.885 136.754C709.539 72.4079 1287 81.6134 1287 253.168Z" />
                         <g>
                             <motion.path 
                             initial={{ pathLength: 0, fill: "transparent"}}
@@ -219,12 +220,13 @@ export default function Info4(){
                     </g>
                 </motion.svg>
             </Flex>
+            </Affix>
                 
             }
             
-            <ActionIcon variant="transparent" color="black" size="xl" className={classes.iconInfo} onClick={() => (localData && localData.length > 0)? setInfoBoxOpen(true): null}>
+            {/* <ActionIcon variant="transparent" color="black" size="xl" className={classes.iconInfo} onClick={() => (localData && localData.length > 0)? setInfoBoxOpen(true): null}>
                     <RxInfoCircled size={100}/>
-            </ActionIcon>
+            </ActionIcon> */}
         </>
     );
 }

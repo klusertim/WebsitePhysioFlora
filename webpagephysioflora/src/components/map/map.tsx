@@ -59,7 +59,7 @@ export default function Map({width, height, ...props}: Props){
         <div {...props}>
             <GoogleMap
             options={styleArr}
-            zoom={16}
+            zoom={15}
             center={mapCenter}
             // mapTypeId={google.maps.MapTypeId.ROADMAP}
             mapContainerClassName = "map-container"
@@ -67,12 +67,15 @@ export default function Map({width, height, ...props}: Props){
             onLoad={() => console.log('Map Component Loaded...')}
             
         >
-            <MarkerF position={mapCenter} /*icon={markerIcon}*/ onClick={() => setInfoOpen(true)} onLoad={() => console.log('Marker Loaded')} />
-            {infoOpen && (
-            <InfoWindow position={mapCenter} onCloseClick={() => setInfoOpen(false)}>
-                <div>Physiotherapie Flora</div>
-            </InfoWindow>
-            )}
+            <MarkerF position={mapCenter} title="Physio Flora"/*icon={markerIcon}*/ onClick={() => setInfoOpen(true)} onLoad={() => console.log('Marker Loaded')} />
+            {/* {infoOpen && (
+            <InfoWindow position={mapCenter}
+            onCloseClick={() => setInfoOpen(false)}
+            
+            children={<div>Physiotherapie Flora</div>}
+            />
+                
+           )}  */}
         </GoogleMap>
         </div>
     )

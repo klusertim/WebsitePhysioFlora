@@ -52,7 +52,7 @@ export default function DrawerMenu({...others}){
 
 
     return(
-        <Flex {...others} justify="center" pt={50}>
+        <Flex {...others} justify="center">
                 {/* <Group position="right" p="lg" > */}
                 <Affix position={{top: 20, right:20}} zIndex={4} {...others}>
                     <Burger opened={drawerOpen!} onClick={() => setDrawerOpen!(!drawerOpen)} >Open Drawer</Burger>
@@ -60,7 +60,7 @@ export default function DrawerMenu({...others}){
                 {/* </Group> */}
                     <motion.div style={{width: w, height: "2px", position: "fixed", top: 0, left: 0, zIndex: 10}} className={classes.progressBar}/>
                
-            <Logo/>
+            {/* <Logo/> */}
         <MediaQuery
             largerThan="sm"
             styles={{display: "none"}}

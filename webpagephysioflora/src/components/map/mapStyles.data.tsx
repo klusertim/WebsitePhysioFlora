@@ -1,4 +1,6 @@
 
+
+
 export default {
     styles: [
         {
@@ -33,7 +35,7 @@ export default {
             "elementType": "all",
             "stylers": [
                 {
-                    "visibility": "simplified"
+                    "visibility": "off"
                 }
             ]
         },
@@ -117,5 +119,50 @@ export default {
                     "gamma": 5.86
                 }
             ]
-        }
+        },
+        {
+            "featureType": "transit.station.bus",
+            "elementType": "geometry.fill",
+            "stylers": [
+                {
+                    "visibility": "on"
+                },
+                {
+                    "color": "#ff0000"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.station.bus",
+            "elementType": "labels",
+            "stylers": [
+                {
+                    "visibility": "on"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.station.bus",
+            "elementType": "labels.text",
+            "stylers": [
+                {
+                    "visibility": "on"
+                },
+                {
+                    "color": "#000000"
+                }
+            ]
+        },
+        {
+            "featureType": "transit.station.bus",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "on"
+                },
+                {
+                    "color": "#D72973"
+                }
+            ]
+        },
     ]}
