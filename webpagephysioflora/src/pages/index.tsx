@@ -10,30 +10,32 @@ import { LoadScript } from "@react-google-maps/api";
 import BigImg from "@/components/BigImg";
 import Footer from "@/components/footer";
 import Underlay from "@/components/underlay";
+import { Suspense } from "react";
 
 const useStyles = createStyles(() => ({
     container: {
         // zIndex: 0,
-        backgroundColor: "white"
+        backgroundColor: "white",
+        overflow: "hidden"
     }
 }))
 
 export default function Index(){
     const {classes} = useStyles();
     return(
-        <>
+        <Suspense fallback={<p>Loading...</p>}>
         <Flex w="100vw" direction="column" className={classes.container} >
         <Header/>
         <WelcomePage/>
         <OfferPage/>
         <BigImg url="PhysioWallpaper.jpg"/>
         <TeamPage/>
-        <BigImg url="PhyioWallpaper.jpg"/>
+        <BigImg url="PhysioWallpaper.jpg"/>
         <ContactPage/>
         <LocationMap/>
         <Footer/>
         </Flex>
         <Underlay/>
-        </>
+        </Suspense>
     )
 }

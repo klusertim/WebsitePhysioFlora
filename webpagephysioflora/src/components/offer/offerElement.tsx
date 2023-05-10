@@ -8,8 +8,8 @@ interface Data{
         de: string
     },
     description: {
-        fr: string
-        de: string
+        fr: JSX.Element
+        de: JSX.Element
     },
     icon: string
 }
@@ -66,17 +66,16 @@ export default function OfferElement({title, description, icon}: Data){
             </Flex>
         </Modal>
 
-        <Flex p="lg" pl={0} direction="column" align="flex-start">
+        <Flex pt={50} direction="column" align="flex-start" > 
             {/* <MediaQuery
                 query="(max-width: 370px)"
                 styles={{flexWrap: "wrap"}}
             > */}
-            <Group w={500} noWrap>
-                <Flex h={80} maw={70} align="center" justify="center">
-                <Image src={`/offer/icons/${icon}-Icon.png`}/>
-
+            <Group grow noWrap>
+                <Flex mah={80} maw={70} align="center" justify="center">
+                    <Image src={`/offer/icons/${icon}-Icon.png`}/>
                 </Flex>
-                <Text size="lg" weight={700} pr="lg" style={{wordWrap: "break-word"}}>{locale == "fr" ? title.fr : title.de}</Text>
+                <Text size="lg" weight={700} pr="lg" >{locale == "fr" ? title.fr : title.de}</Text>
             </Group>
             {/* </MediaQuery> */}
             {/* <Text size="sm" color="dimmed">

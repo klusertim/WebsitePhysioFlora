@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import {Element} from 'react-scroll';
 import FloraTitle from "../floraTitle";
 import teamData from "./team.data";
-import TeamElementBig from "./teamElementBig";
+import TeamElementBig from "./teamElement";
 import { useMediaQuery } from "@mantine/hooks";
 import { motion } from "framer-motion";
 
@@ -64,47 +64,19 @@ export default function TeamPage(){
                     
                           <>
                             <FloraTitle title={teamDataTitle.title} speech={teamDataTitle.speech} />
-                            {/* <MediaQuery
-                              smallerThan="sm"
-                              styles={{display: "none"}}
-                            > */}
-
-                              <Grid m="10vw" mt="5vh" gutter={5}>
+                              <Grid m="10vw" mt="5vh" gutter="lg" >
                                   {
                                     teamData.map((dataEl, i) =>
                                       (
-                                          <TeamElementBig data={dataEl} key={i}/>
-
-                                        
+                                        <Grid.Col key={i} lg={6} >
+                                          <TeamElementBig data={dataEl} />
+                                        </Grid.Col>
                                       )
                                     )
                                   }
-                                  {/* <Grid.Col>
-                                    <SusanneSVG/>
-                                  </Grid.Col> */}
+                                  
                               </Grid>
-                            {/* </MediaQuery> */}
-                            {/* <MediaQuery
-                              largerThan="sm"
-                              styles={{display: "none"}}
-                            >
-                            <Box>
-                              <Space h="lg"/>
-                              <Stack p="lg" spacing="xl">
-                                  {teamData.map((dataEl, i) => (
-                                    <Stack align="center" key={i}>
-                                      <Flex miw={200} maw={300} align="center" justify="center">
-                                        <Image src={`team/${dataEl.image}.png`}/>
-                                      </Flex>
-                                      <Title order={3}>{dataEl.name}</Title>
-                                      <Text>
-                                          {dataEl.description.de}
-                                      </Text>
-                                    </Stack>
-                                  ))}
-                              </Stack>
-                              </Box>
-                            </MediaQuery> */}
+                            
                           </>
                 </Box>
                 {/* <LayeredWaves offsetY={0} rotation={180}/> */}

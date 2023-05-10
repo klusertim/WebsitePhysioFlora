@@ -1,3 +1,5 @@
+import { Text } from "@mantine/core";
+
 export default {
     title: {
         fr: "Offre",
@@ -14,8 +16,10 @@ export default {
                 de: "Aktive Bewegungs- und Sporttherapie"
             },
             description: {
-                fr: "dfwoeifjwep",
-                de: "Bei dieser Therapie geht es darum, den Körper durch gezieltes Training fit zu halten oder nach Verletzungen oder Operationen wieder fit zu machen. Es können Übungen gemacht werden, um Muskelschwäche zu verbessern oder um sich schneller zu erholen."
+                fr: <Text>dfwoeifjwep</Text>,
+                de: <Text>Im muskuloskelettalen Bereich behandeln wir Muskelverspannungen, -verletzungen und -schwächen
+                aller Körperregionen mit Lockerungsübungen, Triggerpunkt- und klassischen Massagen, Dehnungen,
+                Kräftigungs- und Haltungsübungen. (Weitere Informationen <a href="https://www.physioswiss.ch">www.physioswiss.ch</a>)</Text>
             },
             icon: "Barbell"
         },
@@ -25,8 +29,10 @@ export default {
                 de: "Beckenboden- und Inkontinenzbehandlung"
             },
             description: {
-                fr: "dfwoeifjwep",
-                de: "Diese Therapie kann helfen, den Beckenboden zu stärken und zu entspannen. Das kann bei Blasenproblemen, Inkontinenz oder auch bei Rückenschmerzen helfen."
+                fr: <Text>dfwoeifjwep</Text>,
+                de: <Text>Im Bereich des Beckens bieten wir Muskelkräftigung und-lockerung der Beckenboden- und
+                Gesässmuskeln, sowie Elektrostimulation zur Muskelkräftigung, zur Entspannung von Muskeln und
+                Blase oder zur Schmerzlinderung an. (Weitere Informationen <a href="https://www.pelvisuisse.ch">www.pelvisuisse.ch</a>)</Text>
             },
             icon: "Becken"
         },
@@ -36,8 +42,8 @@ export default {
                 de: "Skoliosebehandlung"
             },
             description: {
-                fr: "dfwoeifjwep",
-                de: "Mit dieser Therapie wird eine Wirbelsäulenverkrümmung behandelt. Dabei geht es darum, die Krümmung zu reduzieren und Schmerzen zu lindern. Sie kann sowohl bei Kindern als auch Erwachsenen angewendet werden."
+                fr: <Text>dfwoeifjwep</Text>,
+                de: <Text>Mit dieser Therapie wird eine Wirbelsäulenverkrümmung behandelt. Dabei geht es darum, die Krümmung zu reduzieren und Schmerzen zu lindern. Sie kann sowohl bei Kindern als auch Erwachsenen angewendet werden.</Text>
             },
             icon: "Ruecken"
         },
@@ -47,8 +53,8 @@ export default {
                 de: "Atemtherapie und COVID Rehabilitation"
             },
             description: {
-                fr: "dfwoeifjwep",
-                de: "Diese Therapie ist speziell darauf ausgerichtet, die Atmung und Lungenfunktion zu verbessern. Sie kann bei Atemproblemen, Asthma oder auch bei der Rehabilitation von COVID-19-Patient*innen helfen."
+                fr: <Text>dfwoeifjwep</Text>,
+                de: <Text>Diese Therapie ist speziell darauf ausgerichtet, die Atmung und Lungenfunktion zu verbessern. Sie kann bei Atemproblemen, Asthma oder auch bei der Rehabilitation von COVID-19-Patient*innen helfen.</Text>
             },
             icon: "Lungen"
         },
@@ -58,8 +64,10 @@ export default {
                 de: "Manuelle Lymphdrainage und Kompressionsbandagen"
             },
             description: {
-                fr: "dfwoeifjwep",
-                de: "Bei dieser Therapie wird der Körper durch sanfte Massage unterstützt, um Flüssigkeitsansammlungen und Schwellungen zu reduzieren. Kompressionsbandagen können dabei helfen, den Lymphfluss im Körper zu verbessern."
+                fr: <Text>dfwoeifjwep</Text>,
+                de: <Text>Bei Ödemkrankheiten führen wir manuelle Lymphdrainage kombiniert mit dreistufigen Bandagen zur
+                Vorbereitung auf eine Strumpfversorgung durch und begleiten Ödembetroffene oft langfristig mit
+                regelmässigen Behandlungen. (weitere Informationen <a href="https://www.lymphosuisse.ch">www.lymphosuisse.ch</a>, <a href="https://www.lv-schweiz.ch">www.lv-schweiz.ch</a>)</Text>
             },
             icon: "Bein"
         },
@@ -69,8 +77,11 @@ export default {
                 de: "Schwindel- und Gleichgewichtstraining"
             },
             description: {
-                fr: "dfwoeifjwep",
-                de: "Bei dieser Therapie wird gezielt daran gearbeitet, das Gleichgewicht und die Koordination zu verbessern. Das kann bei Schwindel, Benommenheit oder nach einer Verletzung oder Operation helfen."
+                fr: <Text>dfwoeifjwep</Text>,
+                de: <Text>Neurologische Behandlungen zur Verringerung von Schwindel, Verbesserung von
+                Bewegungsabläufen nach Schlaganfall oder bei Lähmungen gehören auch in unser Repertoire.
+                (Weitere Informationen <a href="https://www.schwindeltherapie.ch">www.schwindeltherapie.ch</a>, International Bobath Instructors Training
+                Association IBITA, Fachgruppe Physiotherapie in der Geriatrie FPG)</Text>
             },
             icon: "Human"
         },
@@ -80,8 +91,8 @@ export default {
                 de: "Triggerpunkt- und Faszienbehandlung"
             },
             description: {
-                fr: "dfwoeifjwep",
-                de: "Bei dieser Therapie wird gezielt verspannte Muskelpartien massiert, um chronische Schmerzen zu lindern oder die Beweglichkeit zu verbessern. Sie kann bei Verletzungen oder nach Operationen eingesetzt werden."
+                fr: <Text>dfwoeifjwep</Text>,
+                de: <Text>Bei dieser Therapie wird gezielt verspannte Muskelpartien massiert, um chronische Schmerzen zu lindern oder die Beweglichkeit zu verbessern. Sie kann bei Verletzungen oder nach Operationen eingesetzt werden.</Text>
             },
             icon: "Barbell"
         },
