@@ -1,8 +1,6 @@
 import { Stack, Title, Group, Text, Image, Container, createStyles, Space, Flex, Button, Transition, Box, Paper, ActionIcon, BackgroundImage } from "@mantine/core"
 import { useContext, useEffect, useRef, useState } from "react";
 import { Link, animateScroll as scroll, Element } from "react-scroll";
-// import Info1 from "./info/info1";
-import Info2 from "../info/info2";
 import LayeredWaves from "../layeredWaves";
 import {RxInfoCircled} from "react-icons/rx";
 import {InfoBoxContext } from "@/contexts/infobox.context";

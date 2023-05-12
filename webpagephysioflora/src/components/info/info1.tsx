@@ -3,7 +3,6 @@ import useSWR from 'swr'
 // import InfoData from "./InfoData";
 import {InfoBoxContext } from "@/contexts/infobox.context";
 import { useContext, useEffect, useMemo, useState } from 'react';
-import FetchTest1 from "../fetchTest1";
 import {RxCross1, RxInfoCircled} from "react-icons/rx";
 import { useRouter } from "next/router";
 import { motion } from "framer-motion";
