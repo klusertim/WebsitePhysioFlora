@@ -46,13 +46,14 @@ function PreloadImages({ imageSrcs, children } : {imageSrcs: string[], children:
         setLoaded(false)
     }
 
-    useEffect(() => {
-        window.addEventListener("load", handleLoading);
+    // useEffect(() => {
+    //     window.addEventListener("load", handleLoading);
 
-        return () => window.removeEventListener("load", handleLoading)
-    }, [])
+    //     return () => window.removeEventListener("load", handleLoading)
+    // }, [])
 
-    return loaded ? children : <p>Loading...</p>
+    // return loaded ? children : <p>Loading...</p>
+    return children;
 }
 
 export default function Index(){
