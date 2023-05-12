@@ -2,13 +2,14 @@ import { Stack, Title, Group, Text, Image, Container, createStyles, Space, Flex,
 import { useContext, useEffect, useRef, useState } from "react";
 import { Link, animateScroll as scroll, Element } from "react-scroll";
 // import Info1 from "./info/info1";
-import Info2 from "./info/info2";
-import LayeredWaves from "./layeredWaves";
+import Info2 from "../info/info2";
+import LayeredWaves from "../layeredWaves";
 import {RxInfoCircled} from "react-icons/rx";
 import {InfoBoxContext } from "@/contexts/infobox.context";
-import Info3 from "./info/info3";
-import Info1 from "./info/info1";
-import Info4 from "./info/info4";
+import Info3 from "../info/info3";
+import Info1 from "../info/info1";
+import Info4 from "../info/info4";
+import Head from "next/head";
 
 
 const useStyles = createStyles((theme) => ({
@@ -77,6 +78,10 @@ export default function WelcomePage(){
 
   const [showInfo, setShowInfo] = useState(true);
     return (
+      <>
+        {/* <Head>
+          <link rel="preload" as="image" href="welcomeImage.jpg"/>
+        </Head> */}
         <Element name="home">
           {/* <Info2/> */}
         <Info4/>
@@ -102,5 +107,7 @@ export default function WelcomePage(){
         </Flex>
         </BackgroundImage>
         </Element>
+      </>
+
     )
 }

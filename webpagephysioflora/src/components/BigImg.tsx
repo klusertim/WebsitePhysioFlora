@@ -1,8 +1,12 @@
-import { createStyles, Image, MediaQuery } from "@mantine/core"
+import { createStyles, Flex, MediaQuery, Image } from "@mantine/core"
+// import Image from "next/image";
+import Head from "next/head";
+// import Image from "next/image";
 
 const useStyles = createStyles((theme) => ({
     container: {
         backgroundImage: 'url("PhysioWallpaper.jpg")',
+        
         backgroundPositionX: "50%",
         backgroundPositionY: "0%",
         backgroundSize: "cover",
@@ -21,6 +25,9 @@ export default function BigImg({url}: {url: string}){
     return(
         // <Image className={classes.img} src="PhysioWallpaper.jpg" alt="wallpaper" width="100%" height={500}/>
         <>
+        <Head>
+            <link rel="preload" as="image" href="PhysioWallpaper.jpg"/>
+        </Head>
         <MediaQuery
             smallerThan="sm"
             styles={{display: "none"}}
@@ -31,7 +38,9 @@ export default function BigImg({url}: {url: string}){
             largerThan="sm"
             styles={{display: "none"}}
         >
-            <Image src={url}/>
+            {/* <Flex w="100vw" h="50vh"> */}
+                <Image src={url} alt="big image"/>
+            {/* </Flex> */}
         </MediaQuery>
         </>
     )

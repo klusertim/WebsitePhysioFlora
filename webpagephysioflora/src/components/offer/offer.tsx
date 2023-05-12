@@ -1,4 +1,5 @@
-import { createStyles, Flex, Title, Transition, Box, Grid, Image, Group, Stack, useMantineTheme } from "@mantine/core";
+import { createStyles, Flex, Title, Transition, Box, Grid, Group, Stack, useMantineTheme } from "@mantine/core";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import LayeredWaves from "../layeredWaves"
 import offerData from "./offer.data";
@@ -6,6 +7,7 @@ import FloraTitle from "../floraTitle";
 import {Element} from 'react-scroll';
 import OfferElement from "./offerElement";
 import { useMediaQuery } from "@mantine/hooks";
+import Head from "next/head";
 
 
 const useStyles = createStyles((theme) => ({
@@ -44,6 +46,10 @@ export default function OfferPage(){
   // }, [ref]);
 
     return (
+      <>
+        {/* <Head>
+            <link rel="preload" as="image" href="offer/physioImage.jpg"/>
+        </Head> */}
         <Element name="offer" marginHeight={-1000}>
             <Flex w="100vw" m={0} justify="center" align="flex-start" direction="column" p={0} pt="xl" mt={-0.257} >
               <FloraTitle title={offerData.title} speech={offerData.speech} />
@@ -55,11 +61,12 @@ export default function OfferPage(){
                     )}
 
                 </Flex>
-                <Flex style={{display: isSmallDevice ? "none" : "flex"}} maw="40vw" >
-                  <Image src="offer/physioImage.jpg"/>
+                <Flex style={{display: isSmallDevice ? "none" : "flex"}} pos="relative" w={"40vw"} h={"55vw"}>
+                  <Image src="offer/physioImage.jpg" alt="pyhsio Image" fill={true} />
                 </Flex>
                 </Flex>
             </Flex>
         </Element>
+        </>
     )
 }

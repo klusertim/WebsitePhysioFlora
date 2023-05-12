@@ -53,7 +53,7 @@ export default function Header({...props}){
         animateScroll.scrollTo(lastYState, {delay: 0, duration: 0})
     }, [locale, lastYState]);
 
-    const ratio = 120 * 1442 / width - 350;
+    const ratio: number = width ? 120 * 1442 / width - 350 : 0;
     return(
         <DrawerProvider>
             <>

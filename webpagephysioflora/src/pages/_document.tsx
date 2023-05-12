@@ -10,10 +10,12 @@ export default class _Document extends Document {
     return (
       <Html>
         <Head>
-          <link rel="preconnect" href="https://fonts.googleapis.com"/>
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          {/* <link rel="preload" as="font" href="https://fonts.googleapis.com"/>
+          <link rel="preload" as="font" href="https://fonts.gstatic.com" /> */}
+          <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" />
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"/>
-          <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet"/>
+          <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"/>
+          <link  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet"/>
         </Head>
         <body>
           <Main />
