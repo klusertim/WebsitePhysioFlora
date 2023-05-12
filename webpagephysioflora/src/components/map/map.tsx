@@ -12,7 +12,7 @@ interface Props extends BoxProps, Pick<React.CSSProperties, 'width'>, Pick<React
 export default function Map({width, height, ...props}: Props){
 
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
+        googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string || process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY as string,
       });
     
     const mapCenter = useMemo(

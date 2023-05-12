@@ -16,6 +16,9 @@ export default class _Document extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"/>
           <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap"/>
           <link  href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet"/>
+
+          {/* load api key for development */}
+          <script type='text/javascript' src='config.js'></script>
         </Head>
         <body>
           <Main />
